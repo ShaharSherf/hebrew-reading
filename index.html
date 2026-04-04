@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>לומדים לקרוא בעברית - ብዕብራይስጢ ከነንብብ ንመሃር</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
+</head>
+<body>
+
+  <!-- Parent Guide Banner -->
+  <div class="parent-banner" onclick="navigateTo('welcome')">
+    ברוכים הבאים! האתר הזה עוזר לילדים ללמוד לקרוא בעברית, עם תרגום לתגרינית
+    <span class="banner-tigrinya">!ቋንቋ ዕብራይስጢ ንምምሃር ዝሕግዝ መርበብ ሓበሬታ - እንቋዕ ብደሓን መጻእኩም</span>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <h1>📚 לומדים לקרוא! - !ከነንብብ ንመሃር</h1>
+    <div class="subtitle">עברית + תגרינית - ዕብራይስጢ + ትግርኛ</div>
+    <div class="subtitle-tigrinya">ንቆልዑን ስድራቤትን - לילדים ולהורים</div>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <button class="nav-btn" data-section="welcome">🏠 בית</button>
+    <button class="nav-btn" data-section="letters">🔤 אותיות</button>
+    <button class="nav-btn" data-section="nikud">✨ ניקוד</button>
+    <button class="nav-btn" data-section="words">📖 מילים</button>
+    <button class="nav-btn" data-section="reading">📖 סיפורים</button>
+    <button class="nav-btn" data-section="matching">🎯 התאמה</button>
+    <button class="nav-btn" data-section="memory">🧠 זיכרון</button>
+    <button class="nav-btn" data-section="quiz">🏆 חידון</button>
+  </nav>
+
+  <!-- Welcome Section -->
+  <section id="welcome" class="section active"></section>
+
+  <!-- Letters Section -->
+  <section id="letters" class="section">
+    <h2 class="section-title">🔤 האותיות של העברית</h2>
+    <p class="section-subtitle">
+      לחצו על אות כדי לראות פרטים - ንዝርዝር ንምርኣይ ኣብ ፊደል ጠውቑ
+    </p>
+    <div class="letters-grid" id="letters-grid"></div>
+  </section>
+
+  <!-- Nikud Section -->
+  <section id="nikud" class="section">
+    <h2 class="section-title">✨ ניקוד - תנועות</h2>
+    <p class="section-subtitle">
+      הניקוד עוזר לנו לדעת איך לקרוא - ነጥብታት ከመይ ከም ነንብብ ይሕብሩና
+    </p>
+    <div class="nikud-grid" id="nikud-grid"></div>
+  </section>
+
+  <!-- Words Section -->
+  <section id="words" class="section">
+    <h2 class="section-title">📖 מילים - ቃላት</h2>
+    <p class="section-subtitle">
+      לחצו על מילה כדי לראות תרגום - ትርጉም ንምርኣይ ኣብ ቃል ጠውቑ
+    </p>
+    <div id="category-tabs" class="category-tabs"></div>
+    <div id="words-grid" class="words-grid"></div>
+  </section>
+
+  <!-- Reading Section -->
+  <section id="reading" class="section">
+    <h2 class="section-title">📖 סִפּוּרִים - ዛንታታት</h2>
+    <p class="section-subtitle">
+      בחרו סיפור וקראו - העבירו את העכבר על מילה לתרגום
+      <br>
+      ዛንታ ምረጹ ኣንብቡ - ትርጉም ንምርኣይ ኣብ ቃል ጠውቑ
+    </p>
+    <div id="story-picker"></div>
+    <div id="reading-content"></div>
+  </section>
+
+  <!-- Matching Game Section -->
+  <section id="matching" class="section">
+    <h2 class="section-title">🎯 משחק התאמה - ጸወታ ምትእስሳር</h2>
+    <p class="section-subtitle">
+      התאימו את המילה בעברית לתרגום - ናይ ዕብራይስጢ ቃል ምስ ትርጉሙ ኣተኣሳስርዎ
+    </p>
+    <div id="match-content"></div>
+  </section>
+
+  <!-- Memory Game Section -->
+  <section id="memory" class="section">
+    <h2 class="section-title">🧠 משחק זיכרון - ጸወታ ዝኽሪ</h2>
+    <p class="section-subtitle">
+      מצאו את הזוגות - ጽምድታት ርኸቡ
+    </p>
+    <div id="memory-content"></div>
+  </section>
+
+  <!-- Quiz Section -->
+  <section id="quiz" class="section">
+    <h2 class="section-title">🏆 חידון - ፈተና</h2>
+    <p class="section-subtitle">
+      ?מה למדנו - ዝተመሃርናዮ ንፈትሽ
+    </p>
+    <div id="quiz-content"></div>
+  </section>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
