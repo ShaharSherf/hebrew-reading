@@ -50,53 +50,107 @@ function renderWelcome() {
   el.innerHTML = `
     <div class="welcome">
       <div class="welcome-hero">📚✨🎓</div>
-      <h2>!בּוֹאוּ נִלְמַד לִקְרֹא בְּעִבְרִית</h2>
-      <div class="welcome-tigrinya">!ንዑ ብዕብራይስጢ ከነንብብ ንመሃር</div>
+      <h2>
+        <span class="lhe" style="display:block;">!בּוֹאוּ נִלְמַד לִקְרֹא בְּעִבְרִית</span>
+        <span class="ltr" style="display:block;font-size:0.6em;margin-top:6px;">bo'u nilmad likro be-ivrit!</span>
+        <span class="lti" style="display:block;font-size:0.7em;margin-top:4px;">!ንዑ ብዕብራይስጢ ከነንብብ ንመሃር</span>
+      </h2>
       <p style="margin-bottom: 24px; color: var(--text-light);">
-        לחצו על כפתור כדי להתחיל - ንጀምር ጠውቑ
+        <span class="lhe" style="display:block;">לחצו על כפתור כדי להתחיל</span>
+        <span class="ltr" style="display:block;font-size:0.9em;margin-top:4px;">lachtsu al kaftor kedei lehat'chil</span>
+        <span class="lti" style="display:block;margin-top:4px;">ንጀምር ጠውቑ</span>
       </p>
       <div class="welcome-cards">
         <div class="welcome-card" onclick="navigateTo('letters')">
           <div class="welcome-card-emoji">🔤</div>
-          <h3>אותיות - ፊደላት</h3>
-          <p>לומדים את האלף-בית</p>
-          <p>ናይ ዕብራይስጢ ፊደላት ንመሃር</p>
+          <h3>
+            <span class="lhe">אותיות</span>
+            <span class="ltr" style="display:block;font-size:0.75em;margin-top:3px;">otiyot</span>
+            <span class="lti" style="display:block;font-size:0.8em;margin-top:2px;">ፊደላት</span>
+          </h3>
+          <p>
+            <span class="lhe" style="display:block;">לומדים את האלף-בית</span>
+            <span class="ltr" style="display:block;font-size:0.85em;margin-top:3px;">lomdim et ha-alef-bet</span>
+            <span class="lti" style="display:block;margin-top:2px;">ናይ ዕብራይስጢ ፊደላት ንመሃር</span>
+          </p>
         </div>
         <div class="welcome-card" onclick="navigateTo('nikud')">
           <div class="welcome-card-emoji">✨</div>
-          <h3>ניקוד - ነጥብታት</h3>
-          <p>לומדים את התנועות</p>
-          <p>ናይ ድምጺ ምልክታት ንመሃር</p>
+          <h3>
+            <span class="lhe">ניקוד</span>
+            <span class="ltr" style="display:block;font-size:0.75em;margin-top:3px;">nikud</span>
+            <span class="lti" style="display:block;font-size:0.8em;margin-top:2px;">ነጥብታት</span>
+          </h3>
+          <p>
+            <span class="lhe" style="display:block;">לומדים את התנועות</span>
+            <span class="ltr" style="display:block;font-size:0.85em;margin-top:3px;">lomdim et ha-tnu'ot</span>
+            <span class="lti" style="display:block;margin-top:2px;">ናይ ድምጺ ምልክታት ንመሃር</span>
+          </p>
         </div>
         <div class="welcome-card" onclick="navigateTo('words')">
           <div class="welcome-card-emoji">📖</div>
-          <h3>מילים - ቃላት</h3>
-          <p>לומדים מילים חדשות</p>
-          <p>ሓደስቲ ቃላት ንመሃር</p>
+          <h3>
+            <span class="lhe">מילים</span>
+            <span class="ltr" style="display:block;font-size:0.75em;margin-top:3px;">milim</span>
+            <span class="lti" style="display:block;font-size:0.8em;margin-top:2px;">ቃላት</span>
+          </h3>
+          <p>
+            <span class="lhe" style="display:block;">לומדים מילים חדשות</span>
+            <span class="ltr" style="display:block;font-size:0.85em;margin-top:3px;">lomdim milim khadashot</span>
+            <span class="lti" style="display:block;margin-top:2px;">ሓደስቲ ቃላት ንመሃር</span>
+          </p>
         </div>
         <div class="welcome-card" onclick="navigateTo('reading')">
           <div class="welcome-card-emoji">📖</div>
-          <h3>סיפורים - ዛንታታት</h3>
-          <p>קוראים סיפורים קצרים</p>
-          <p>ሓጸርቲ ዛንታታት ነንብብ</p>
+          <h3>
+            <span class="lhe">סיפורים</span>
+            <span class="ltr" style="display:block;font-size:0.75em;margin-top:3px;">sipurim</span>
+            <span class="lti" style="display:block;font-size:0.8em;margin-top:2px;">ዛንታታት</span>
+          </h3>
+          <p>
+            <span class="lhe" style="display:block;">קוראים סיפורים קצרים</span>
+            <span class="ltr" style="display:block;font-size:0.85em;margin-top:3px;">kor'im sipurim ktsarim</span>
+            <span class="lti" style="display:block;margin-top:2px;">ሓጸርቲ ዛንታታት ነንብብ</span>
+          </p>
         </div>
         <div class="welcome-card" onclick="navigateTo('matching')">
           <div class="welcome-card-emoji">🎯</div>
-          <h3>התאמה - ምትእስሳር</h3>
-          <p>משחק התאמה</p>
-          <p>ጸወታ ምትእስሳር</p>
+          <h3>
+            <span class="lhe">התאמה</span>
+            <span class="ltr" style="display:block;font-size:0.75em;margin-top:3px;">hata'ama</span>
+            <span class="lti" style="display:block;font-size:0.8em;margin-top:2px;">ምትእስሳር</span>
+          </h3>
+          <p>
+            <span class="lhe" style="display:block;">משחק התאמה</span>
+            <span class="ltr" style="display:block;font-size:0.85em;margin-top:3px;">miskhak hata'ama</span>
+            <span class="lti" style="display:block;margin-top:2px;">ጸወታ ምትእስሳር</span>
+          </p>
         </div>
         <div class="welcome-card" onclick="navigateTo('memory')">
           <div class="welcome-card-emoji">🧠</div>
-          <h3>זיכרון - ዝኽሪ</h3>
-          <p>משחק זיכרון</p>
-          <p>ጸወታ ዝኽሪ</p>
+          <h3>
+            <span class="lhe">זיכרון</span>
+            <span class="ltr" style="display:block;font-size:0.75em;margin-top:3px;">zikaron</span>
+            <span class="lti" style="display:block;font-size:0.8em;margin-top:2px;">ዝኽሪ</span>
+          </h3>
+          <p>
+            <span class="lhe" style="display:block;">משחק זיכרון</span>
+            <span class="ltr" style="display:block;font-size:0.85em;margin-top:3px;">miskhak zikaron</span>
+            <span class="lti" style="display:block;margin-top:2px;">ጸወታ ዝኽሪ</span>
+          </p>
         </div>
         <div class="welcome-card" onclick="navigateTo('quiz')">
           <div class="welcome-card-emoji">🏆</div>
-          <h3>חידון - ፈተና</h3>
-          <p>בואו נבדוק מה למדנו!</p>
-          <p>!ዝተመሃርናዮ ንፈትሽ</p>
+          <h3>
+            <span class="lhe">חידון</span>
+            <span class="ltr" style="display:block;font-size:0.75em;margin-top:3px;">khidon</span>
+            <span class="lti" style="display:block;font-size:0.8em;margin-top:2px;">ፈተና</span>
+          </h3>
+          <p>
+            <span class="lhe" style="display:block;">!בואו נבדוק מה למדנו</span>
+            <span class="ltr" style="display:block;font-size:0.85em;margin-top:3px;">bo'u nivdok ma lamadnu!</span>
+            <span class="lti" style="display:block;margin-top:2px;">!ዝተመሃርናዮ ንፈትሽ</span>
+          </p>
         </div>
       </div>
     </div>
@@ -106,7 +160,7 @@ function renderWelcome() {
 // ===== LETTERS =====
 function renderLetterCard(l) {
   return `
-    <div class="letter-card" onclick="toggleLetter(this)">
+    <div class="letter-card" data-hebrew="${l.hebrew}" onclick="toggleLetter(this)">
       <div class="letter-hebrew">${l.hebrew}</div>
       <div class="letter-name">${l.name}</div>
       <div class="letter-tigrinya">${l.nameTranslit}</div>
@@ -117,7 +171,8 @@ function renderLetterCard(l) {
         </div>
         <div class="letter-example">
           <div class="letter-example-word">${l.example}</div>
-          <div class="letter-example-meaning">${l.exampleTranslit} = ${l.exampleMeaning}</div>
+          <div class="letter-example-translit">${l.exampleTranslit}</div>
+          <div class="letter-example-meaning">${l.exampleMeaning}</div>
         </div>
       </div>
     </div>`;
@@ -127,13 +182,16 @@ function renderLetters() {
   const grid = document.getElementById('letters-grid');
   let html = LETTERS.map(l => renderLetterCard(l)).join('');
   html += `<div style="grid-column:1/-1;text-align:center;margin:16px 0 8px;font-size:1.2rem;font-weight:700;color:var(--primary);">
-    אותיות סופיות - ናይ መወዳእታ ፊደላት
+    <span class="lhe">אותיות סופיות</span>
+    <span class="ltr" style="display:inline-block;font-size:0.75em;margin:0 6px;">otiyot sofit</span>
+    <span class="lti">ናይ መወዳእታ ፊደላት</span>
   </div>`;
   html += SOFIT_LETTERS.map(l => renderLetterCard(l)).join('');
   grid.innerHTML = html;
 }
 
 function toggleLetter(el) {
+  speak(el.dataset.hebrew);
   const wasExpanded = el.classList.contains('expanded');
   document.querySelectorAll('.letter-card').forEach(c => c.classList.remove('expanded'));
   if (!wasExpanded) el.classList.add('expanded');
@@ -143,11 +201,16 @@ function toggleLetter(el) {
 function renderNikud() {
   const grid = document.getElementById('nikud-grid');
   grid.innerHTML = NIKUD.map(n => `
-    <div class="nikud-card">
+    <div class="nikud-card" data-name="${n.name}" onclick="speak(this.dataset.name)">
       <div class="nikud-symbol">${n.symbol}</div>
       <div class="nikud-name">${n.name}</div>
-      <div class="nikud-sound">צליל: "${n.sound}"</div>
-      <div class="nikud-tigrinya">ትግርኛ: ${n.tigrinya}</div>
+      <div class="nikud-sound">
+        <span class="lhe">צליל:</span>
+        <span class="ltr" style="margin-right:4px;">"${n.sound}"</span>
+      </div>
+      <div class="nikud-tigrinya">
+        <span class="lti">ትግርኛ: ${n.tigrinya}</span>
+      </div>
     </div>
   `).join('');
 }
@@ -184,15 +247,21 @@ function renderCategoryWords(cat) {
       <div class="cat-tigrinya">${category.titleTigrinya}</div>
     </div>
     ${category.words.map((w, i) => `
-      <div class="word-card" onclick="toggleWord(this)">
+      <div class="word-card" data-hebrew="${w.hebrew}" onclick="toggleWord(this)">
         <div class="word-emoji">${renderEmoji(w.emoji)}</div>
         <div class="word-hebrew">${w.hebrew}</div>
         <div class="word-translit">${w.translit}</div>
         <div class="word-tigrinya">${w.tigrinya}</div>
         <div class="word-back">
-          <div class="word-back-label">תרגום / ትርጉም</div>
+          <div class="word-back-label">
+            <span class="lhe">תרגום</span> /
+            <span class="lti">ትርጉም</span>
+          </div>
           <div class="word-back-value" style="color: var(--secondary);">${w.tigrinya}</div>
-          <div class="word-back-label" style="margin-top: 4px;">הגייה / ኣደማምጻ</div>
+          <div class="word-back-label" style="margin-top: 4px;">
+            <span class="lhe">הגייה</span> /
+            <span class="lti">ኣደማምጻ</span>
+          </div>
           <div class="word-back-value" style="color: var(--orange); direction: ltr;">${w.translit}</div>
         </div>
       </div>
@@ -201,6 +270,7 @@ function renderCategoryWords(cat) {
 }
 
 function toggleWord(el) {
+  speak(el.dataset.hebrew);
   el.classList.toggle('flipped');
 }
 
@@ -247,8 +317,16 @@ function renderStoryPage() {
           <div class="story-cover-translit">${story.titleTranslit}</div>
         </div>
         <div class="story-nav">
-          <button class="reading-nav-btn" onclick="backToStories()">חזרה לסיפורים / ናብ ዛንታታት ተመለስ</button>
-          <button class="reading-nav-btn" style="background:var(--primary);color:white;" onclick="currentPage=0;renderStoryPage()">→ להתחיל לקרוא</button>
+          <button class="reading-nav-btn" onclick="backToStories()">
+            <span class="lhe">חזרה לסיפורים</span>
+            <span class="ltr" style="font-size:0.85em;margin-right:4px;">khazara le-sipurim</span>
+            /
+            <span class="lti">ናብ ዛንታታት ተመለስ</span>
+          </button>
+          <button class="reading-nav-btn" style="background:var(--primary);color:white;" onclick="currentPage=0;renderStoryPage()">
+            <span class="lhe">→ להתחיל לקרוא</span>
+            <span class="ltr" style="display:block;font-size:0.8em;margin-top:2px;">lehat'khil likro →</span>
+          </button>
         </div>
       </div>
     `;
@@ -264,19 +342,21 @@ function renderStoryPage() {
         <span class="story-header-title">${story.cover} ${story.title} - ${story.titleTigrinya}</span>
       </div>
       <div class="story-page">
-        <div class="story-emoji">${page.emoji}</div>
+        <div class="story-emoji">${page.emoji && page.emoji.startsWith('img:') ? `<img src="${page.emoji.slice(4)}" alt="" class="story-page-image">` : (page.emoji || '')}</div>
         <div class="reading-sentence">
           ${page.words.map((w, i) => `
-            <div class="reading-word">
+            <div class="reading-word" data-hebrew="${w}" onclick="speak(this.dataset.hebrew)">
               <div class="rw-hebrew">${w}</div>
-              ${page.tigrinya[i] ? `<div class="rw-tooltip">
-                ${page.translit[i]} = ${page.tigrinya[i]}
-              </div>` : ''}
+              ${page.tigrinya[i] ? `<div class="rw-tigrinya">${page.tigrinya[i]}</div>` : ''}
+              ${page.translit[i] ? `<div class="rw-translit">${page.translit[i]}</div>` : ''}
             </div>
           `).join('')}
         </div>
         <button class="toggle-btn" onclick="toggleTranslation(this)">
-          הראה תרגום / ትርጉም ኣርኢ
+          <span class="lhe">הראה תרגום</span>
+          <span class="ltr" style="font-size:0.85em;margin-right:4px;">har'e tirgum</span>
+          /
+          <span class="lti">ትርጉም ኣርኢ</span>
         </button>
         <div class="reading-translation hidden" id="reading-translation">
           <div class="reading-translit">${page.translit.join(' ')}</div>
@@ -284,12 +364,21 @@ function renderStoryPage() {
         </div>
       </div>
       <div class="story-nav">
-        <button class="reading-nav-btn" onclick="storyPrev()" ${currentPage === 0 ? 'disabled style="opacity:0.4"' : ''}>→ הקודם</button>
-        <span class="story-page-num">עמוד ${currentPage + 1} / ${total}</span>
+        <button class="reading-nav-btn" onclick="storyPrev()" ${currentPage === 0 ? 'disabled style="opacity:0.4"' : ''}>
+          <span class="lhe">→ הקודם</span>
+        </button>
+        <span class="story-page-num">
+          <span class="lhe">עמוד</span>
+          ${currentPage + 1} / ${total}
+        </span>
         ${currentPage < total - 1 ? `
-          <button class="reading-nav-btn" onclick="storyNext()">הבא ←</button>
+          <button class="reading-nav-btn" onclick="storyNext()">
+            <span class="lhe">הבא ←</span>
+          </button>
         ` : `
-          <button class="reading-nav-btn" style="background:var(--green);color:white;border-color:var(--green);" onclick="storyFinish()">סיימתי! ←</button>
+          <button class="reading-nav-btn" style="background:var(--green);color:white;border-color:var(--green);" onclick="storyFinish()">
+            <span class="lhe">!סיימתי ←</span>
+          </button>
         `}
       </div>
     </div>
@@ -322,11 +411,29 @@ function storyFinish() {
   container.innerHTML = `
     <div class="celebration show">
       <div class="celebration-emoji">📖⭐🎉</div>
-      <h2>!סיימתם את הסיפור - ዛንታ ወዲእኩም</h2>
-      <p>!כל הכבוד - ብራቮ</p>
+      <h2>
+        <span class="lhe" style="display:block;">!סיימתם את הסיפור</span>
+        <span class="ltr" style="display:block;font-size:0.6em;margin-top:6px;">siyamtem et ha-sipur!</span>
+        <span class="lti" style="display:block;font-size:0.7em;margin-top:4px;">ዛንታ ወዲእኩም!</span>
+      </h2>
+      <p>
+        <span class="lhe" style="display:block;">!כל הכבוד</span>
+        <span class="ltr" style="display:block;font-size:0.85em;margin-top:3px;">kol ha-kavod!</span>
+        <span class="lti" style="display:block;margin-top:2px;">!ብራቮ</span>
+      </p>
       <div style="margin-top:16px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
-        <button class="game-btn game-btn-primary" onclick="openStory(${currentStory})">קראו שוב / ደግሞ ኣንብቡ</button>
-        <button class="game-btn game-btn-secondary" onclick="backToStories()">סיפור אחר / ካልእ ዛንታ</button>
+        <button class="game-btn game-btn-primary" onclick="openStory(${currentStory})">
+          <span class="lhe">קראו שוב</span>
+          <span class="ltr" style="font-size:0.85em;margin-right:4px;">kre'u shuv</span>
+          /
+          <span class="lti">ደግሞ ኣንብቡ</span>
+        </button>
+        <button class="game-btn game-btn-secondary" onclick="backToStories()">
+          <span class="lhe">סיפור אחר</span>
+          <span class="ltr" style="font-size:0.85em;margin-right:4px;">sipur akher</span>
+          /
+          <span class="lti">ካልእ ዛንታ</span>
+        </button>
       </div>
     </div>
   `;
@@ -360,16 +467,42 @@ function initMatchGame(count = 6) {
   const container = document.getElementById('match-content');
   container.innerHTML = `
     <div class="game-controls">
-      <div class="game-score">ניקוד / ነጥቢ: <span id="match-score">0</span> / ${count}</div>
+      <div class="game-score">
+        <span class="lhe">ניקוד</span>
+        <span class="ltr" style="font-size:0.85em;margin-right:4px;">nikud</span>
+        /
+        <span class="lti">ነጥቢ</span>:
+        <span id="match-score">0</span> / ${count}
+      </div>
       <div class="difficulty-selector">
-        <button class="diff-btn ${count === 4 ? 'active' : ''}" onclick="initMatchGame(4)">קל / ቀሊል</button>
-        <button class="diff-btn ${count === 6 ? 'active' : ''}" onclick="initMatchGame(6)">בינוני / ማእከላይ</button>
-        <button class="diff-btn ${count === 8 ? 'active' : ''}" onclick="initMatchGame(8)">קשה / ከቢድ</button>
+        <button class="diff-btn ${count === 4 ? 'active' : ''}" onclick="initMatchGame(4)">
+          <span class="lhe">קל</span>
+          <span class="ltr" style="font-size:0.85em;margin-right:3px;">kal</span>
+          /
+          <span class="lti">ቀሊል</span>
+        </button>
+        <button class="diff-btn ${count === 6 ? 'active' : ''}" onclick="initMatchGame(6)">
+          <span class="lhe">בינוני</span>
+          <span class="ltr" style="font-size:0.85em;margin-right:3px;">beinoni</span>
+          /
+          <span class="lti">ማእከላይ</span>
+        </button>
+        <button class="diff-btn ${count === 8 ? 'active' : ''}" onclick="initMatchGame(8)">
+          <span class="lhe">קשה</span>
+          <span class="ltr" style="font-size:0.85em;margin-right:3px;">kashe</span>
+          /
+          <span class="lti">ከቢድ</span>
+        </button>
       </div>
     </div>
     <div class="match-container">
       <div class="match-column">
-        <div class="match-column-title">עברית / ዕብራይስጢ</div>
+        <div class="match-column-title">
+          <span class="lhe">עברית</span>
+          <span class="ltr" style="font-size:0.85em;margin-right:4px;">ivrit</span>
+          /
+          <span class="lti">ዕብራይስጢ</span>
+        </div>
         ${leftItems.map(item => `
           <div class="match-item" data-id="${item.id}" data-side="left" onclick="selectMatch(this)">
             <div class="match-hebrew">${item.text}</div>
@@ -378,7 +511,12 @@ function initMatchGame(count = 6) {
         `).join('')}
       </div>
       <div class="match-column">
-        <div class="match-column-title">תרגום / ትርጉም</div>
+        <div class="match-column-title">
+          <span class="lhe">תרגום</span>
+          <span class="ltr" style="font-size:0.85em;margin-right:4px;">tirgum</span>
+          /
+          <span class="lti">ትርጉም</span>
+        </div>
         ${rightItems.map(item => `
           <div class="match-item" data-id="${item.id}" data-side="right" onclick="selectMatch(this)">
             ${item.text}
@@ -388,10 +526,21 @@ function initMatchGame(count = 6) {
     </div>
     <div class="celebration" id="match-celebration">
       <div class="celebration-emoji">🎉🌟🎊</div>
-      <h2>!כל הכבוד - ብራቮ</h2>
-      <p>!סיימתם את המשחק - ጸወታ ወዲእኩም</p>
+      <h2>
+        <span class="lhe" style="display:block;">!כל הכבוד</span>
+        <span class="ltr" style="display:block;font-size:0.6em;margin-top:6px;">kol ha-kavod!</span>
+        <span class="lti" style="display:block;font-size:0.7em;margin-top:4px;">!ብራቮ</span>
+      </h2>
+      <p>
+        <span class="lhe" style="display:block;">!סיימתם את המשחק</span>
+        <span class="ltr" style="display:block;font-size:0.85em;margin-top:3px;">siyamtem et ha-miskhak!</span>
+        <span class="lti" style="display:block;margin-top:2px;">!ጸወታ ወዲእኩም</span>
+      </p>
       <button class="game-btn game-btn-primary" onclick="initMatchGame(${count})" style="margin-top: 16px;">
-        שחקו שוב / ደግሞ ጸውቱ
+        <span class="lhe">שחקו שוב</span>
+        <span class="ltr" style="font-size:0.85em;margin-right:4px;">sakhaku shuv</span>
+        /
+        <span class="lti">ደግሞ ጸውቱ</span>
       </button>
     </div>
   `;
@@ -402,6 +551,7 @@ function selectMatch(el) {
 
   const side = el.dataset.side;
   const id = parseInt(el.dataset.id);
+  speak(matchState.words[id].hebrew);
 
   // Deselect same side
   if (side === 'left') {
@@ -463,8 +613,8 @@ function initMemoryGame(pairs = 6) {
   // Create pairs: one card shows emoji, other shows hebrew word
   const cards = [];
   selected.forEach((w, i) => {
-    cards.push({ id: i, type: 'emoji', display: w.emoji, sub: w.tigrinya });
-    cards.push({ id: i, type: 'hebrew', display: w.hebrew, sub: w.translit });
+    cards.push({ id: i, type: 'emoji',   display: w.emoji,   sub: w.tigrinya, hebrew: w.hebrew });
+    cards.push({ id: i, type: 'hebrew',  display: w.hebrew,  sub: w.translit,  hebrew: w.hebrew });
   });
 
   const shuffled = shuffle(cards);
@@ -482,13 +632,36 @@ function initMemoryGame(pairs = 6) {
   container.innerHTML = `
     <div class="game-controls">
       <div class="game-score">
-        צעדים / ስጉምቲ: <span id="memory-moves">0</span> |
-        זוגות / ጽምዲ: <span id="memory-score">0</span> / ${pairs}
+        <span class="lhe">צעדים</span>
+        <span class="ltr" style="font-size:0.85em;margin-right:3px;">tse'adim</span>
+        /
+        <span class="lti">ስጉምቲ</span>:
+        <span id="memory-moves">0</span> |
+        <span class="lhe">זוגות</span>
+        <span class="ltr" style="font-size:0.85em;margin-right:3px;">zugot</span>
+        /
+        <span class="lti">ጽምዲ</span>:
+        <span id="memory-score">0</span> / ${pairs}
       </div>
       <div class="difficulty-selector">
-        <button class="diff-btn ${pairs === 4 ? 'active' : ''}" onclick="initMemoryGame(4)">קל / ቀሊል</button>
-        <button class="diff-btn ${pairs === 6 ? 'active' : ''}" onclick="initMemoryGame(6)">בינוני / ማእከላይ</button>
-        <button class="diff-btn ${pairs === 8 ? 'active' : ''}" onclick="initMemoryGame(8)">קשה / ከቢድ</button>
+        <button class="diff-btn ${pairs === 4 ? 'active' : ''}" onclick="initMemoryGame(4)">
+          <span class="lhe">קל</span>
+          <span class="ltr" style="font-size:0.85em;margin-right:3px;">kal</span>
+          /
+          <span class="lti">ቀሊል</span>
+        </button>
+        <button class="diff-btn ${pairs === 6 ? 'active' : ''}" onclick="initMemoryGame(6)">
+          <span class="lhe">בינוני</span>
+          <span class="ltr" style="font-size:0.85em;margin-right:3px;">beinoni</span>
+          /
+          <span class="lti">ማእከላይ</span>
+        </button>
+        <button class="diff-btn ${pairs === 8 ? 'active' : ''}" onclick="initMemoryGame(8)">
+          <span class="lhe">קשה</span>
+          <span class="ltr" style="font-size:0.85em;margin-right:3px;">kashe</span>
+          /
+          <span class="lti">ከቢድ</span>
+        </button>
       </div>
     </div>
     <div class="memory-grid">
@@ -507,10 +680,21 @@ function initMemoryGame(pairs = 6) {
     </div>
     <div class="celebration" id="memory-celebration">
       <div class="celebration-emoji">🧠⭐🏆</div>
-      <h2>!מדהים - ዓብዪ</h2>
-      <p>!מצאתם את כל הזוגות - ኩሉ ጽምድታት ረኺብኩም</p>
+      <h2>
+        <span class="lhe" style="display:block;">!מדהים</span>
+        <span class="ltr" style="display:block;font-size:0.6em;margin-top:6px;">madhim!</span>
+        <span class="lti" style="display:block;font-size:0.7em;margin-top:4px;">!ዓብዪ</span>
+      </h2>
+      <p>
+        <span class="lhe" style="display:block;">!מצאתם את כל הזוגות</span>
+        <span class="ltr" style="display:block;font-size:0.85em;margin-top:3px;">mtsatem et kol ha-zugot!</span>
+        <span class="lti" style="display:block;margin-top:2px;">!ኩሉ ጽምድታት ረኺብኩም</span>
+      </p>
       <button class="game-btn game-btn-primary" onclick="initMemoryGame(${pairs})" style="margin-top: 16px;">
-        שחקו שוב / ደግሞ ጸውቱ
+        <span class="lhe">שחקו שוב</span>
+        <span class="ltr" style="font-size:0.85em;margin-right:4px;">sakhaku shuv</span>
+        /
+        <span class="lti">ደግሞ ጸውቱ</span>
       </button>
     </div>
   `;
@@ -520,6 +704,7 @@ function flipMemoryCard(el) {
   if (memoryState.locked) return;
   if (el.classList.contains('flipped') || el.classList.contains('matched')) return;
 
+  speak(memoryState.cards[parseInt(el.dataset.idx)].hebrew);
   el.classList.add('flipped');
   memoryState.flipped.push(el);
 
@@ -586,12 +771,22 @@ function renderQuizQuestion() {
     container.innerHTML = `
       <div class="celebration show">
         <div class="celebration-emoji">${pct >= 70 ? '🏆🌟🎉' : '💪📚✨'}</div>
-        <h2>${pct >= 70 ? '!מצוין - ብሉጽ' : '!כל הכבוד - ብራቮ'}</h2>
-        <p>עניתם נכון על ${quizState.score} מתוך ${quizState.total} שאלות</p>
-        <p>ካብ ${quizState.total} ሕቶታት ${quizState.score} ትኽክል መሊስኩም</p>
+        <h2>
+          <span class="lhe" style="display:block;">${pct >= 70 ? '!מצוין' : '!כל הכבוד'}</span>
+          <span class="ltr" style="display:block;font-size:0.6em;margin-top:6px;">${pct >= 70 ? 'metsuyyan!' : 'kol ha-kavod!'}</span>
+          <span class="lti" style="display:block;font-size:0.7em;margin-top:4px;">${pct >= 70 ? '!ብሉጽ' : '!ብራቮ'}</span>
+        </h2>
+        <p>
+          <span class="lhe" style="display:block;">עניתם נכון על ${quizState.score} מתוך ${quizState.total} שאלות</span>
+          <span class="ltr" style="display:block;font-size:0.85em;margin-top:3px;">anittem nakhon al ${quizState.score} mi-tokh ${quizState.total} she'elot</span>
+          <span class="lti" style="display:block;margin-top:2px;">ካብ ${quizState.total} ሕቶታት ${quizState.score} ትኽክል መሊስኩም</span>
+        </p>
         <p style="font-size: 2rem; margin: 12px 0;">${pct}%</p>
         <button class="game-btn game-btn-primary" onclick="initQuiz()" style="margin-top: 16px;">
-          נסו שוב / ደግሞ ፈትኑ
+          <span class="lhe">נסו שוב</span>
+          <span class="ltr" style="font-size:0.85em;margin-right:4px;">nasu shuv</span>
+          /
+          <span class="lti">ደግሞ ፈትኑ</span>
         </button>
       </div>
     `;
@@ -611,18 +806,31 @@ function renderQuizQuestion() {
 
   container.innerHTML = `
     <div class="quiz-card">
-      <div class="quiz-question">?מה המילה הזאת - እዛ ቃል እንታይ ማለት እያ</div>
+      <div class="quiz-question">
+        <span class="lhe">?מה המילה הזאת</span>
+        <span class="ltr" style="display:block;font-size:0.85em;margin-top:4px;">ma ha-mila ha-zot?</span>
+        <span class="lti" style="display:block;margin-top:3px;">እዛ ቃል እንታይ ማለት እያ?</span>
+      </div>
       <div class="quiz-word">${q.hebrew}</div>
       <div class="quiz-translit">${q.translit}</div>
       <div class="quiz-options">
         ${options.map((opt, idx) => `
-          <button class="quiz-option" data-eid="${opt}" onclick="answerQuiz(this, ${idx})" data-correct="${opt === q.emoji}">
+          <button class="quiz-option" data-eid="${opt}" data-hebrew="${q.hebrew}" onclick="answerQuiz(this, ${idx})" data-correct="${opt === q.emoji}">
             ${renderEmoji(opt)}
           </button>
         `).join('')}
       </div>
       <div class="quiz-progress">
-        שאלה / ሕቶ ${quizState.current + 1} מתוך / ካብ ${quizState.total}
+        <span class="lhe">שאלה</span>
+        <span class="ltr" style="font-size:0.85em;margin-right:3px;">she'ela</span>
+        /
+        <span class="lti">ሕቶ</span>
+        ${quizState.current + 1}
+        <span class="lhe">מתוך</span>
+        <span class="ltr" style="font-size:0.85em;margin-right:3px;">mi-tokh</span>
+        /
+        <span class="lti">ካብ</span>
+        ${quizState.total}
         <div class="quiz-progress-bar">
           <div class="quiz-progress-fill" style="width: ${(quizState.current / quizState.total) * 100}%"></div>
         </div>
@@ -636,6 +844,7 @@ function renderQuizQuestion() {
 function answerQuiz(el, idx) {
   if (quizState.answered) return;
   quizState.answered = true;
+  speak(el.dataset.hebrew);
 
   document.querySelectorAll('.quiz-option').forEach(b => b.classList.add('disabled'));
 
