@@ -99,7 +99,8 @@ body {
   cursor: pointer;
   transition: var(--transition);
   font-family: inherit;
-  white-space: nowrap;
+  text-align: center;
+  line-height: 1.3;
 }
 
 .nav-btn:hover {
@@ -112,6 +113,26 @@ body {
 .nav-btn.active {
   background: var(--primary);
   color: white;
+  box-shadow: var(--shadow);
+}
+
+.nav-audio-btn {
+  padding: 10px 14px;
+  border: 2px solid var(--primary);
+  background: white;
+  color: var(--primary);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: var(--transition);
+  white-space: nowrap;
+  margin-right: auto; /* RTL: fills right-side space, pushing toggle to far-left — intentional separation from nav buttons */
+}
+
+.nav-audio-btn:hover {
+  background: var(--primary-light);
+  color: white;
+  transform: translateY(-2px);
   box-shadow: var(--shadow);
 }
 
@@ -255,10 +276,19 @@ body {
   color: var(--primary-dark);
 }
 
+.letter-example-translit {
+  font-size: 0.85rem;
+  color: var(--orange);
+  font-weight: 600;
+  direction: ltr;
+  margin-top: 2px;
+}
+
 .letter-example-meaning {
   font-size: 0.85rem;
   color: var(--secondary);
-  font-weight: 500;
+  font-weight: 600;
+  margin-top: 1px;
 }
 
 /* ===== NIKUD SECTION ===== */
@@ -780,6 +810,17 @@ body {
   letter-spacing: 4px;
 }
 
+.story-page-image {
+  max-width: 100%;
+  max-height: 320px;
+  width: auto;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+  margin: 0 auto 20px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
 .story-nav {
   display: flex;
   justify-content: center;
@@ -831,6 +872,21 @@ body {
   font-size: 1.6rem;
   font-weight: 700;
   color: var(--primary);
+}
+
+.reading-word .rw-tigrinya {
+  font-size: 0.85rem;
+  color: var(--secondary);
+  font-weight: 600;
+  margin-top: 3px;
+}
+
+.reading-word .rw-translit {
+  font-size: 0.8rem;
+  color: var(--orange);
+  font-weight: 600;
+  margin-top: 1px;
+  direction: ltr;
 }
 
 .reading-word .rw-tooltip {
@@ -1171,6 +1227,7 @@ body {
   .header .subtitle { font-size: 0.85rem; }
   .nav { gap: 6px; padding: 8px 12px; top: 64px; }
   .nav-btn { padding: 8px 14px; font-size: 0.85rem; }
+  .nav-audio-btn { padding: 8px 10px; font-size: 0.95rem; }
   .section { padding: 14px; }
   .letters-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
   .letter-hebrew { font-size: 2.5rem; }
@@ -1190,6 +1247,21 @@ body {
   .quiz-options { gap: 8px; }
   .quiz-option { padding: 12px; font-size: 1.5rem; }
 }
+
+/* ===== LANGUAGE COLOR CLASSES ===== */
+.lhe { color: var(--primary); font-weight: 700; }
+.ltr { color: var(--orange); font-weight: 600; direction: ltr; font-style: italic; }
+.lti { color: var(--secondary); font-weight: 600; }
+
+.section-title .lhe, .section-title .ltr, .section-title .lti,
+.section-subtitle .lhe, .section-subtitle .ltr, .section-subtitle .lti { display: block; }
+.section-title .ltr { font-size: 0.52em; font-weight: 500; margin-top: 4px; }
+.section-title .lti { font-size: 0.62em; margin-top: 2px; }
+.section-subtitle .ltr { font-size: 0.9em; margin-top: 5px; }
+.section-subtitle .lti { margin-top: 3px; }
+
+.parent-banner .lhe, .parent-banner .ltr, .parent-banner .lti { display: block; }
+.parent-banner .ltr { font-size: 0.85em; margin-top: 2px; }
 
 /* ===== PRINT STYLES ===== */
 @media print {
