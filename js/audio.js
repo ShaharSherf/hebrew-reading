@@ -16,9 +16,9 @@ function speak(text) {
   u.voice = heVoice;
   u.lang = 'he-IL';
   u.rate = 0.9;
-  u.onerror = () => {};
+  u.onerror = (e) => console.warn('TTS error:', e.error);
   speechSynthesis.cancel();
-  speechSynthesis.speak(u);
+  setTimeout(() => speechSynthesis.speak(u), 0);
 }
 
 function toggleAudio() {
