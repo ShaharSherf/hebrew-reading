@@ -11,9 +11,9 @@ if (window.speechSynthesis) {
 }
 
 function speak(text) {
-  if (!audioEnabled || !heVoice || !text?.trim()) return;
+  if (!audioEnabled || !text?.trim()) return;
   const u = new SpeechSynthesisUtterance(text.trim());
-  u.voice = heVoice;
+  if (heVoice) u.voice = heVoice;
   u.lang = 'he-IL';
   u.rate = 0.9;
   u.onerror = (e) => console.warn('TTS error:', e.error);
