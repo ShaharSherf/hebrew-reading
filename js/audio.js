@@ -1,6 +1,5 @@
 let audioEnabled = localStorage.getItem('audioEnabled') !== 'false';
 let heVoice = null;
-let currentAudio = null;
 
 function loadVoice() {
   heVoice = speechSynthesis.getVoices().find(v => v.lang.startsWith('he')) || null;
@@ -22,11 +21,9 @@ function speak(text) {
     u.onerror = (e) => console.warn('TTS error:', e.error);
     speechSynthesis.cancel();
     setTimeout(() => speechSynthesis.speak(u), 0);
-  } else {
-    if (currentAudio) { currentAudio.pause(); currentAudio = null; }
-    const url = `https://translate.google.com/translate_tts?ie=UTF-8&q=${encodeURIComponent(text.trim())}&tl=he&client=tw-ob&ttsspeed=0.7`;
-    currentAudio = new Audio(url);
-    currentAudio.play().catch(e => console.warn('TTS error:', e));
+  } else if (typeof responsiveVoice !== 'undefined') {
+    responsiveVoice.cancel();
+    responsiveVoice.speak(text.trim(), 'Hebrew Female', { rate: 0.9 });
   }
 }
 
