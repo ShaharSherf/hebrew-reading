@@ -10,9 +10,11 @@ if (window.speechSynthesis) {
   speechSynthesis.addEventListener('voiceschanged', loadVoice);
 }
 
-function speak(text) {
-  if (!audioEnabled || !text?.trim()) return;
-  const u = new SpeechSynthesisUtterance(text.trim());
+function speak(text, fallback) {
+  if (!audioEnabled) return;
+  const toSpeak = heVoice ? text : (fallback || text);
+  if (!toSpeak?.trim()) return;
+  const u = new SpeechSynthesisUtterance(toSpeak.trim());
   if (heVoice) {
     u.voice = heVoice;
     u.lang = 'he-IL';

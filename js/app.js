@@ -160,7 +160,7 @@ function renderWelcome() {
 // ===== LETTERS =====
 function renderLetterCard(l) {
   return `
-    <div class="letter-card" data-hebrew="${l.hebrew}" onclick="toggleLetter(this)">
+    <div class="letter-card" data-hebrew="${l.hebrew}" data-translit="${l.sound}" onclick="toggleLetter(this)">
       <div class="letter-hebrew">${l.hebrew}</div>
       <div class="letter-name">${l.name}</div>
       <div class="letter-tigrinya">${l.nameTranslit}</div>
@@ -191,7 +191,7 @@ function renderLetters() {
 }
 
 function toggleLetter(el) {
-  speak(el.dataset.hebrew);
+  speak(el.dataset.hebrew, el.dataset.translit);
   const wasExpanded = el.classList.contains('expanded');
   document.querySelectorAll('.letter-card').forEach(c => c.classList.remove('expanded'));
   if (!wasExpanded) el.classList.add('expanded');
@@ -201,7 +201,7 @@ function toggleLetter(el) {
 function renderNikud() {
   const grid = document.getElementById('nikud-grid');
   grid.innerHTML = NIKUD.map(n => `
-    <div class="nikud-card" data-name="${n.name}" onclick="speak(this.dataset.name)">
+    <div class="nikud-card" data-name="${n.name}" data-sound="${n.sound}" onclick="speak(this.dataset.name, this.dataset.sound)">
       <div class="nikud-symbol">${n.symbol}</div>
       <div class="nikud-name">${n.name}</div>
       <div class="nikud-sound">
@@ -247,7 +247,7 @@ function renderCategoryWords(cat) {
       <div class="cat-tigrinya">${category.titleTigrinya}</div>
     </div>
     ${category.words.map((w, i) => `
-      <div class="word-card" data-hebrew="${w.hebrew}" onclick="toggleWord(this)">
+      <div class="word-card" data-hebrew="${w.hebrew}" data-translit="${w.translit}" onclick="toggleWord(this)">
         <div class="word-emoji">${renderEmoji(w.emoji)}</div>
         <div class="word-hebrew">${w.hebrew}</div>
         <div class="word-translit">${w.translit}</div>
@@ -270,7 +270,7 @@ function renderCategoryWords(cat) {
 }
 
 function toggleWord(el) {
-  speak(el.dataset.hebrew);
+  speak(el.dataset.hebrew, el.dataset.translit);
   el.classList.toggle('flipped');
 }
 
@@ -345,7 +345,7 @@ function renderStoryPage() {
         <div class="story-emoji">${page.emoji && page.emoji.startsWith('img:') ? `<img src="${page.emoji.slice(4)}" alt="" class="story-page-image">` : (page.emoji || '')}</div>
         <div class="reading-sentence">
           ${page.words.map((w, i) => `
-            <div class="reading-word" data-hebrew="${w}" onclick="speak(this.dataset.hebrew)">
+            <div class="reading-word" data-hebrew="${w}" data-translit="${page.translit[i]}" onclick="speak(this.dataset.hebrew, this.dataset.translit)">
               <div class="rw-hebrew">${w}</div>
               ${page.tigrinya[i] ? `<div class="rw-tigrinya">${page.tigrinya[i]}</div>` : ''}
               ${page.translit[i] ? `<div class="rw-translit">${page.translit[i]}</div>` : ''}
@@ -551,7 +551,7 @@ function selectMatch(el) {
 
   const side = el.dataset.side;
   const id = parseInt(el.dataset.id);
-  speak(matchState.words[id].hebrew);
+  speak(matchState.words[id].hebrew, matchState.words[id].translit);
 
   // Deselect same side
   if (side === 'left') {
@@ -613,8 +613,8 @@ function initMemoryGame(pairs = 6) {
   // Create pairs: one card shows emoji, other shows hebrew word
   const cards = [];
   selected.forEach((w, i) => {
-    cards.push({ id: i, type: 'emoji',   display: w.emoji,   sub: w.tigrinya, hebrew: w.hebrew });
-    cards.push({ id: i, type: 'hebrew',  display: w.hebrew,  sub: w.translit,  hebrew: w.hebrew });
+    cards.push({ id: i, type: 'emoji',   display: w.emoji,   sub: w.tigrinya, hebrew: w.hebrew, translit: w.translit });
+    cards.push({ id: i, type: 'hebrew',  display: w.hebrew,  sub: w.translit,  hebrew: w.hebrew, translit: w.translit });
   });
 
   const shuffled = shuffle(cards);
@@ -704,7 +704,7 @@ function flipMemoryCard(el) {
   if (memoryState.locked) return;
   if (el.classList.contains('flipped') || el.classList.contains('matched')) return;
 
-  speak(memoryState.cards[parseInt(el.dataset.idx)].hebrew);
+  speak(memoryState.cards[parseInt(el.dataset.idx)].hebrew, memoryState.cards[parseInt(el.dataset.idx)].translit);
   el.classList.add('flipped');
   memoryState.flipped.push(el);
 
@@ -815,7 +815,7 @@ function renderQuizQuestion() {
       <div class="quiz-translit">${q.translit}</div>
       <div class="quiz-options">
         ${options.map((opt, idx) => `
-          <button class="quiz-option" data-eid="${opt}" data-hebrew="${q.hebrew}" onclick="answerQuiz(this, ${idx})" data-correct="${opt === q.emoji}">
+          <button class="quiz-option" data-eid="${opt}" data-hebrew="${q.hebrew}" data-translit="${q.translit}" onclick="answerQuiz(this, ${idx})" data-correct="${opt === q.emoji}">
             ${renderEmoji(opt)}
           </button>
         `).join('')}
@@ -844,7 +844,7 @@ function renderQuizQuestion() {
 function answerQuiz(el, idx) {
   if (quizState.answered) return;
   quizState.answered = true;
-  speak(el.dataset.hebrew);
+  speak(el.dataset.hebrew, el.dataset.translit);
 
   document.querySelectorAll('.quiz-option').forEach(b => b.classList.add('disabled'));
 
