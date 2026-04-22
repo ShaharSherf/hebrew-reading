@@ -1,5 +1,6 @@
 let audioEnabled = localStorage.getItem('audioEnabled') !== 'false';
 let heVoice = null;
+let currentAudio = null;
 
 function loadVoice() {
   heVoice = speechSynthesis.getVoices().find(v => v.lang.startsWith('he')) || null;
@@ -10,19 +11,23 @@ if (window.speechSynthesis) {
   speechSynthesis.addEventListener('voiceschanged', loadVoice);
 }
 
-function speak(text, fallback) {
-  if (!audioEnabled) return;
-  const toSpeak = heVoice ? text : (fallback || text);
-  if (!toSpeak?.trim()) return;
-  const u = new SpeechSynthesisUtterance(toSpeak.trim());
+function speak(text) {
+  if (!audioEnabled || !text?.trim()) return;
+
   if (heVoice) {
+    const u = new SpeechSynthesisUtterance(text.trim());
     u.voice = heVoice;
     u.lang = 'he-IL';
+    u.rate = 0.9;
+    u.onerror = (e) => console.warn('TTS error:', e.error);
+    speechSynthesis.cancel();
+    setTimeout(() => speechSynthesis.speak(u), 0);
+  } else {
+    if (currentAudio) { currentAudio.pause(); currentAudio = null; }
+    const url = `https://translate.google.com/translate_tts?ie=UTF-8&q=${encodeURIComponent(text.trim())}&tl=he&client=tw-ob&ttsspeed=0.7`;
+    currentAudio = new Audio(url);
+    currentAudio.play().catch(e => console.warn('TTS error:', e));
   }
-  u.rate = 0.9;
-  u.onerror = (e) => console.warn('TTS error:', e.error);
-  speechSynthesis.cancel();
-  setTimeout(() => speechSynthesis.speak(u), 0);
 }
 
 function toggleAudio() {
