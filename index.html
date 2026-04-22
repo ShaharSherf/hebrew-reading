@@ -12,7 +12,6 @@
   <!-- Parent Guide Banner -->
   <div class="parent-banner" onclick="navigateTo('welcome')">
     <span class="lhe">ברוכים הבאים! האתר הזה עוזר לילדים ללמוד לקרוא בעברית, עם תרגום לתגרינית</span>
-    <span class="ltr">bruchim ha-ba'im! ha-atar ozer le-yeladim lilmod likro be-ivrit, im targum le-tigrinit</span>
     <span class="lti">!ቋንቋ ዕብራይስጢ ንምምሃር ዝሕግዝ መርበብ ሓበሬታ - እንቋዕ ብደሓን መጻእኩም</span>
   </div>
 
@@ -21,26 +20,24 @@
     <h1>📚 <span class="lhe" style="display:inline;">לומדים לקרוא!</span> <span class="lti" style="display:inline;">!ከነንብብ ንመሃር</span></h1>
     <div class="subtitle">
       <span class="lhe" style="display:inline;">עברית + תגרינית</span> ·
-      <span class="ltr" style="display:inline;font-style:normal;">ivrit + tigrinit</span> ·
       <span class="lti" style="display:inline;">ዕብራይስጢ + ትግርኛ</span>
     </div>
     <div class="subtitle-tigrinya">
       <span class="lhe" style="display:inline;">לילדים ולהורים</span> ·
-      <span class="ltr" style="display:inline;font-style:normal;">le-yeladim ve-la-horim</span> ·
       <span class="lti" style="display:inline;">ንቆልዑን ስድራቤትን</span>
     </div>
   </header>
 
   <!-- Navigation -->
   <nav class="nav">
-    <button class="nav-btn" data-section="welcome">🏠 <span class="lhe">בית</span> <span class="ltr">bayit</span> <span class="lti">ቤት</span></button>
-    <button class="nav-btn" data-section="letters">🔤 <span class="lhe">אותיות</span> <span class="ltr">otiyot</span> <span class="lti">ፊደላት</span></button>
-    <button class="nav-btn" data-section="nikud">✨ <span class="lhe">ניקוד</span> <span class="ltr">nikud</span> <span class="lti">ነጥብታት</span></button>
-    <button class="nav-btn" data-section="words">📖 <span class="lhe">מילים</span> <span class="ltr">milim</span> <span class="lti">ቃላት</span></button>
-    <button class="nav-btn" data-section="reading">📖 <span class="lhe">סיפורים</span> <span class="ltr">sipurim</span> <span class="lti">ዛንታታት</span></button>
-    <button class="nav-btn" data-section="matching">🎯 <span class="lhe">התאמה</span> <span class="ltr">hat'ama</span> <span class="lti">ምትእስሳር</span></button>
-    <button class="nav-btn" data-section="memory">🧠 <span class="lhe">זיכרון</span> <span class="ltr">zikhron</span> <span class="lti">ዝኽሪ</span></button>
-    <button class="nav-btn" data-section="quiz">🏆 <span class="lhe">חידון</span> <span class="ltr">khidon</span> <span class="lti">ፈተና</span></button>
+    <button class="nav-btn" data-section="welcome">🏠 <span class="lhe">בית</span> <span class="lti">ቤት</span></button>
+    <button class="nav-btn" data-section="letters">🔤 <span class="lhe">אותיות</span> <span class="lti">ፊደላት</span></button>
+    <button class="nav-btn" data-section="nikud">✨ <span class="lhe">ניקוד</span> <span class="lti">ነጥብታት</span></button>
+    <button class="nav-btn" data-section="words">📖 <span class="lhe">מילים</span> <span class="lti">ቃላት</span></button>
+    <button class="nav-btn" data-section="reading">📖 <span class="lhe">סיפורים</span> <span class="lti">ዛንታታት</span></button>
+    <button class="nav-btn" data-section="matching">🎯 <span class="lhe">התאמה</span> <span class="lti">ምትእስሳር</span></button>
+    <button class="nav-btn" data-section="memory">🧠 <span class="lhe">זיכרון</span> <span class="lti">ዝኽሪ</span></button>
+    <button class="nav-btn" data-section="quiz">🏆 <span class="lhe">חידון</span> <span class="lti">ፈተና</span></button>
     <button class="nav-audio-btn" id="audio-toggle" onclick="toggleAudio()">🔊</button>
   </nav>
 
@@ -51,12 +48,11 @@
   <section id="letters" class="section">
     <h2 class="section-title">🔤
       <span class="lhe">האותיות של העברית</span>
-      <span class="ltr">ha-otiyot shel ha-ivrit</span>
+      <span style="font-size:0.6em;color:var(--orange);display:block;margin-top:2px;">ሃ-ኦቲዮት ሼ ሃ-ኢቭሪት</span>
       <span class="lti">ፊደላት ዕብራይስጢ</span>
     </h2>
     <p class="section-subtitle">
       <span class="lhe">לחצו על אות כדי לראות פרטים</span>
-      <span class="ltr">likhitzu al ot kdei lirot pratim</span>
       <span class="lti">ንዝርዝር ንምርኣይ ኣብ ፊደል ጠውቑ</span>
     </p>
     <div class="letters-grid" id="letters-grid"></div>
@@ -66,12 +62,11 @@
   <section id="nikud" class="section">
     <h2 class="section-title">✨
       <span class="lhe">ניקוד - תנועות</span>
-      <span class="ltr">nikud - tnu'ot</span>
+      <span style="font-size:0.6em;color:var(--orange);display:block;margin-top:2px;">ኒቁድ - ትኑዖት</span>
       <span class="lti">ነጥብታት - ናይ ድምጺ ምልክታት</span>
     </h2>
     <p class="section-subtitle">
       <span class="lhe">הניקוד עוזר לנו לדעת איך לקרוא</span>
-      <span class="ltr">ha-nikud ozer lanu lada'at eikh likro</span>
       <span class="lti">ነጥብታት ከመይ ከም ነንብብ ይሕብሩና</span>
     </p>
     <div class="nikud-grid" id="nikud-grid"></div>
@@ -81,13 +76,12 @@
   <section id="words" class="section">
     <h2 class="section-title">📖
       <span class="lhe">מילים</span>
-      <span class="ltr">milim</span>
+      <span style="font-size:0.6em;color:var(--orange);display:block;margin-top:2px;">ሚሊም</span>
       <span class="lti">ቃላት</span>
     </h2>
     <p class="section-subtitle">
-      <span class="lhe">לחצו על מילה כדי לראות תרגום</span>
-      <span class="ltr">likhitzu al mila kdei lirot targum</span>
-      <span class="lti">ትርጉም ንምርኣይ ኣብ ቃል ጠውቑ</span>
+      <span class="lhe">לחצו על מילה כדי לשמוע</span>
+      <span class="lti">ንምስማዕ ኣብ ቃል ጠውቑ</span>
     </p>
     <div id="category-tabs" class="category-tabs"></div>
     <div id="words-grid" class="words-grid"></div>
@@ -97,13 +91,12 @@
   <section id="reading" class="section">
     <h2 class="section-title">📖
       <span class="lhe">סִפּוּרִים</span>
-      <span class="ltr">sipurim</span>
+      <span style="font-size:0.6em;color:var(--orange);display:block;margin-top:2px;">ሲፑሪም</span>
       <span class="lti">ዛንታታት</span>
     </h2>
     <p class="section-subtitle">
-      <span class="lhe">בחרו סיפור וקראו - העבירו את העכבר על מילה לתרגום</span>
-      <span class="ltr">vakhru sipur ve-kiru - ha'aviru et ha-akhbar al mila le-targum</span>
-      <span class="lti">ዛንታ ምረጹ ኣንብቡ - ትርጉም ንምርኣይ ኣብ ቃል ጠውቑ</span>
+      <span class="lhe">בחרו סיפור וקראו - לחצו על מילה לשמוע</span>
+      <span class="lti">ዛንታ ምረጹ ኣንብቡ - ንምስማዕ ኣብ ቃል ጠውቑ</span>
     </p>
     <div id="story-picker"></div>
     <div id="reading-content"></div>
@@ -113,12 +106,11 @@
   <section id="matching" class="section">
     <h2 class="section-title">🎯
       <span class="lhe">משחק התאמה</span>
-      <span class="ltr">miskhak hat'ama</span>
+      <span style="font-size:0.6em;color:var(--orange);display:block;margin-top:2px;">ሚሽሃቅ ሃታኣማ</span>
       <span class="lti">ጸወታ ምትእስሳር</span>
     </h2>
     <p class="section-subtitle">
       <span class="lhe">התאימו את המילה בעברית לתרגום</span>
-      <span class="ltr">hit'imu et ha-mila be-ivrit la-targum</span>
       <span class="lti">ናይ ዕብራይስጢ ቃል ምስ ትርጉሙ ኣተኣሳስርዎ</span>
     </p>
     <div id="match-content"></div>
@@ -128,12 +120,11 @@
   <section id="memory" class="section">
     <h2 class="section-title">🧠
       <span class="lhe">משחק זיכרון</span>
-      <span class="ltr">miskhak zikhron</span>
+      <span style="font-size:0.6em;color:var(--orange);display:block;margin-top:2px;">ሚሽሃቅ ዚካሮን</span>
       <span class="lti">ጸወታ ዝኽሪ</span>
     </h2>
     <p class="section-subtitle">
       <span class="lhe">מצאו את הזוגות</span>
-      <span class="ltr">mitz'u et ha-zugot</span>
       <span class="lti">ጽምድታት ርኸቡ</span>
     </p>
     <div id="memory-content"></div>
@@ -143,12 +134,11 @@
   <section id="quiz" class="section">
     <h2 class="section-title">🏆
       <span class="lhe">חידון</span>
-      <span class="ltr">khidon</span>
+      <span style="font-size:0.6em;color:var(--orange);display:block;margin-top:2px;">ኺዶን</span>
       <span class="lti">ፈተና</span>
     </h2>
     <p class="section-subtitle">
       <span class="lhe">?מה למדנו</span>
-      <span class="ltr">ma lamadnu?</span>
       <span class="lti">ዝተመሃርናዮ ንፈትሽ</span>
     </p>
     <div id="quiz-content"></div>
@@ -156,6 +146,12 @@
 
   <script src="js/data.js"></script>
   <script src="js/audio.js"></script>
+  <script src="js/welcome.js"></script>
+  <script src="js/letters.js"></script>
+  <script src="js/nikud.js"></script>
+  <script src="js/words.js"></script>
+  <script src="js/reading.js"></script>
+  <script src="js/games.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

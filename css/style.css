@@ -116,6 +116,11 @@ body {
   box-shadow: var(--shadow);
 }
 
+.nav-btn.active .lhe,
+.nav-btn.active .lti {
+  color: white;
+}
+
 .nav-audio-btn {
   padding: 10px 14px;
   border: 2px solid var(--primary);
@@ -232,6 +237,13 @@ body {
   font-weight: 600;
 }
 
+.letter-sound-badge {
+  font-size: 0.95rem;
+  color: var(--orange);
+  font-weight: 600;
+  margin-top: 4px;
+}
+
 .letter-details {
   display: none;
   margin-top: 12px;
@@ -340,6 +352,64 @@ body {
   color: var(--green-dark);
   font-weight: 700;
   margin-top: 4px;
+}
+
+/* ===== NIKUD LETTER PICKER ===== */
+.nikud-letter-picker {
+  grid-column: 1 / -1;
+  background: white;
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  box-shadow: var(--shadow);
+  margin-bottom: 4px;
+  text-align: center;
+}
+
+.nikud-picker-label {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.nikud-picker-btns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+}
+
+.nikud-pick-btn {
+  width: 42px;
+  height: 42px;
+  border: 2px solid var(--primary-light);
+  background: white;
+  border-radius: var(--radius-sm);
+  font-size: 1.3rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  transition: var(--transition);
+  color: var(--primary);
+}
+
+.nikud-pick-btn:hover {
+  background: var(--primary-light);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.nikud-pick-btn.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.nikud-syllable {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--orange);
+  margin-top: 6px;
 }
 
 /* ===== WORDS SECTION ===== */

@@ -10,6 +10,8 @@ if (window.speechSynthesis) {
   speechSynthesis.addEventListener('voiceschanged', loadVoice);
 }
 
+let _currentAudio = null;
+
 function speak(text) {
   if (!audioEnabled || !text?.trim()) return;
 
@@ -21,6 +23,17 @@ function speak(text) {
     u.onerror = (e) => console.warn('TTS error:', e.error);
     speechSynthesis.cancel();
     setTimeout(() => speechSynthesis.speak(u), 0);
+  } else {
+    if (_currentAudio) { _currentAudio.pause(); _currentAudio = null; }
+    fetch(`/tts?q=${encodeURIComponent(text.trim())}`)
+      .then(r => { if (!r.ok) throw new Error(r.status); return r.arrayBuffer(); })
+      .then(buf => {
+        const blobUrl = URL.createObjectURL(new Blob([buf], { type: 'audio/mpeg' }));
+        _currentAudio = new Audio(blobUrl);
+        _currentAudio.play().catch(e => console.warn('TTS play error:', e));
+        _currentAudio.onended = () => { URL.revokeObjectURL(blobUrl); _currentAudio = null; };
+      })
+      .catch(e => console.warn('TTS fetch error:', e));
   }
 }
 

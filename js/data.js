@@ -39,16 +39,18 @@ const SOFIT_LETTERS = [
 ];
 
 // Nikud (vowels) data
+// vowelOffset: Ethiopic syllabic order offset from 1st-order base (1st=0,u=1,i=2,a=3,e=4,ə=5,o=6)
+// mark: Hebrew combining Unicode char(s) for this nikud
 const NIKUD = [
-  { symbol: 'בַ', nikud: 'פַּתָח', sound: 'a', tigrinya: 'ኣ', name: 'פַּתָח - פתוח' },
-  { symbol: 'בָ', nikud: 'קָמָץ', sound: 'a', tigrinya: 'ኣ', name: 'קָמָץ - סגור' },
-  { symbol: 'בִ', nikud: 'חִירִיק', sound: 'i', tigrinya: 'ኢ', name: 'חִירִיק - נקודה' },
-  { symbol: 'בֵ', nikud: 'צֵירֵי', sound: 'e', tigrinya: 'ኤ', name: 'צֵירֵי - שתי נקודות' },
-  { symbol: 'בֶ', nikud: 'סֶגוֹל', sound: 'e', tigrinya: 'ኤ', name: 'סֶגוֹל - שלוש נקודות' },
-  { symbol: 'בֹ', nikud: 'חוֹלָם', sound: 'o', tigrinya: 'ኦ', name: 'חוֹלָם - נקודה למעלה' },
-  { symbol: 'בוּ', nikud: 'שׁוּרוּק', sound: 'u', tigrinya: 'ኡ', name: 'שׁוּרוּק - נקודה בוו' },
-  { symbol: 'בֻ', nikud: 'קֻבּוּץ', sound: 'u', tigrinya: 'ኡ', name: 'קֻבּוּץ - שלוש נקודות' },
-  { symbol: 'בְ', nikud: 'שְׁוָא', sound: 'e קצר / שקט', tigrinya: 'ኧ / ስቕ', name: 'שְׁוָא - שתי נקודות אנכיות' },
+  { symbol: 'בַ', nikud: 'פַּתָח', sound: 'a', tigrinya: 'ኣ', name: 'פַּתָח - פתוח', vowelOffset: 3, mark: 'ַ' },
+  { symbol: 'בָ', nikud: 'קָמָץ', sound: 'a', tigrinya: 'ኣ', name: 'קָמָץ - סגור', vowelOffset: 3, mark: 'ָ' },
+  { symbol: 'בִ', nikud: 'חִירִיק', sound: 'i', tigrinya: 'ኢ', name: 'חִירִיק - נקודה', vowelOffset: 2, mark: 'ִ' },
+  { symbol: 'בֵ', nikud: 'צֵירֵי', sound: 'e', tigrinya: 'ኤ', name: 'צֵירֵי - שתי נקודות', vowelOffset: 4, mark: 'ֵ' },
+  { symbol: 'בֶ', nikud: 'סֶגוֹל', sound: 'e', tigrinya: 'ኤ', name: 'סֶגוֹל - שלוש נקודות', vowelOffset: 4, mark: 'ֶ' },
+  { symbol: 'בֹ', nikud: 'חוֹלָם', sound: 'o', tigrinya: 'ኦ', name: 'חוֹלָם - נקודה למעלה', vowelOffset: 6, mark: 'ֹ' },
+  { symbol: 'בוּ', nikud: 'שׁוּרוּק', sound: 'u', tigrinya: 'ኡ', name: 'שׁוּרוּק - נקודה בוו', vowelOffset: 1, mark: 'וּ' },
+  { symbol: 'בֻ', nikud: 'קֻבּוּץ', sound: 'u', tigrinya: 'ኡ', name: 'קֻבּוּץ - שלוש נקודות', vowelOffset: 1, mark: 'ֻ' },
+  { symbol: 'בְ', nikud: 'שְׁוָא', sound: 'e קצר / שקט', tigrinya: 'ኧ / ስቕ', name: 'שְׁוָא - שתי נקודות אנכיות', vowelOffset: 5, mark: 'ְ' },
 ];
 
 // Vocabulary words organized by category
