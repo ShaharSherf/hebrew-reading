@@ -21,9 +21,6 @@ function speak(text) {
     u.onerror = (e) => console.warn('TTS error:', e.error);
     speechSynthesis.cancel();
     setTimeout(() => speechSynthesis.speak(u), 0);
-  } else if (typeof responsiveVoice !== 'undefined') {
-    responsiveVoice.cancel();
-    responsiveVoice.speak(text.trim(), 'Hebrew Female', { rate: 0.9 });
   }
 }
 
