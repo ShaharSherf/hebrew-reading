@@ -12,6 +12,11 @@ function renderWelcome() {
         <span class="lhe" style="display:block;">לחצו על כפתור כדי להתחיל</span>
         <span class="lti" style="display:block;margin-top:4px;">ንጀምር ጠውቑ</span>
       </p>
+      <div class="color-legend">
+        <span class="legend-item"><span class="lhe">עב׳</span> <span class="legend-label">עברית</span></span>
+        <span class="legend-item"><span style="color:var(--orange);font-weight:700;">ኢቭ</span> <span class="legend-label">תעתיק</span></span>
+        <span class="legend-item"><span class="lti">תרג׳</span> <span class="legend-label">תרגום תגרינית</span></span>
+      </div>
       <div class="welcome-cards">
         <div class="welcome-card" onclick="navigateTo('letters')">
           <div class="welcome-card-emoji">🔤</div>
@@ -40,7 +45,7 @@ function renderWelcome() {
           </p>
         </div>
         <div class="welcome-card" onclick="navigateTo('words')">
-          <div class="welcome-card-emoji">📖</div>
+          <div class="welcome-card-emoji">💬</div>
           <h3>
             <span class="lhe">מילים</span>
             <span class="lti" style="display:block;font-size:0.75em;margin-top:3px;color:var(--orange);">ሚሊም</span>

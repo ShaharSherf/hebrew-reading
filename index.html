@@ -11,6 +11,7 @@
 
   <!-- Parent Guide Banner -->
   <div class="parent-banner" onclick="navigateTo('welcome')">
+    <button class="audio-top-btn" id="audio-toggle" onclick="toggleAudio();event.stopPropagation()">🔊</button>
     <span class="lhe">ברוכים הבאים! האתר הזה עוזר לילדים ללמוד לקרוא בעברית, עם תרגום לתגרינית</span>
     <span class="lti">!ቋንቋ ዕብራይስጢ ንምምሃር ዝሕግዝ መርበብ ሓበሬታ - እንቋዕ ብደሓን መጻእኩም</span>
   </div>
@@ -33,12 +34,11 @@
     <button class="nav-btn" data-section="welcome">🏠 <span class="lhe">בית</span> <span class="lti">ቤት</span></button>
     <button class="nav-btn" data-section="letters">🔤 <span class="lhe">אותיות</span> <span class="lti">ፊደላት</span></button>
     <button class="nav-btn" data-section="nikud">✨ <span class="lhe">ניקוד</span> <span class="lti">ነጥብታት</span></button>
-    <button class="nav-btn" data-section="words">📖 <span class="lhe">מילים</span> <span class="lti">ቃላት</span></button>
+    <button class="nav-btn" data-section="words">💬 <span class="lhe">מילים</span> <span class="lti">ቃላት</span></button>
     <button class="nav-btn" data-section="reading">📖 <span class="lhe">סיפורים</span> <span class="lti">ዛንታታት</span></button>
     <button class="nav-btn" data-section="matching">🎯 <span class="lhe">התאמה</span> <span class="lti">ምትእስሳር</span></button>
     <button class="nav-btn" data-section="memory">🧠 <span class="lhe">זיכרון</span> <span class="lti">ዝኽሪ</span></button>
     <button class="nav-btn" data-section="quiz">🏆 <span class="lhe">חידון</span> <span class="lti">ፈተና</span></button>
-    <button class="nav-audio-btn" id="audio-toggle" onclick="toggleAudio()">🔊</button>
   </nav>
 
   <!-- Welcome Section -->
@@ -74,7 +74,7 @@
 
   <!-- Words Section -->
   <section id="words" class="section">
-    <h2 class="section-title">📖
+    <h2 class="section-title">💬
       <span class="lhe">מילים</span>
       <span style="font-size:0.6em;color:var(--orange);display:block;margin-top:2px;">ሚሊም</span>
       <span class="lti">ቃላት</span>

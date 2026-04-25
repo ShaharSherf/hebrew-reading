@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- pink paint splash -->
+  <circle cx="50" cy="50" r="38" fill="#FF69B4"/>
+  <circle cx="35" cy="35" r="12" fill="#FF85C8"/>
+  <circle cx="62" cy="38" r="10" fill="#FFa0D4"/>
+  <circle cx="50" cy="60" r="14" fill="#FF5AA8"/>
+  <circle cx="38" cy="55" r="8" fill="#FF70B8"/>
+  <text x="50" y="56" text-anchor="middle" font-size="22" font-weight="bold" fill="white" font-family="sans-serif">וָרֹד</text>
+</svg>

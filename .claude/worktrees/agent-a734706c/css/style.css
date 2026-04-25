@@ -49,6 +49,9 @@ body {
   color: white;
   padding: 20px;
   text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
   box-shadow: 0 4px 20px rgba(108, 99, 255, 0.3);
 }
 
@@ -81,7 +84,7 @@ body {
   box-shadow: 0 2px 10px rgba(0,0,0,0.08);
   flex-wrap: wrap;
   position: sticky;
-  top: 0;
+  top: 76px;
   z-index: 99;
 }
 
@@ -96,8 +99,7 @@ body {
   cursor: pointer;
   transition: var(--transition);
   font-family: inherit;
-  text-align: center;
-  line-height: 1.3;
+  white-space: nowrap;
 }
 
 .nav-btn:hover {
@@ -110,32 +112,6 @@ body {
 .nav-btn.active {
   background: var(--primary);
   color: white;
-  box-shadow: var(--shadow);
-}
-
-.nav-btn.active .lhe,
-.nav-btn.active .lti {
-  color: white;
-}
-
-.nav-audio-btn {
-  padding: 10px 14px;
-  border: 2px solid var(--primary);
-  background: white;
-  color: var(--primary);
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  font-size: 1.1rem;
-  font-family: inherit;
-  transition: var(--transition);
-  white-space: nowrap;
-  margin-right: auto; /* RTL: fills right-side space, pushing toggle to far-left — intentional separation from nav buttons */
-}
-
-.nav-audio-btn:hover {
-  background: var(--primary-light);
-  color: white;
-  transform: translateY(-2px);
   box-shadow: var(--shadow);
 }
 
@@ -234,13 +210,6 @@ body {
   font-weight: 600;
 }
 
-.letter-sound-badge {
-  font-size: 0.95rem;
-  color: var(--orange);
-  font-weight: 600;
-  margin-top: 4px;
-}
-
 .letter-details {
   display: none;
   margin-top: 12px;
@@ -286,19 +255,10 @@ body {
   color: var(--primary-dark);
 }
 
-.letter-example-translit {
-  font-size: 0.85rem;
-  color: var(--orange);
-  font-weight: 600;
-  direction: ltr;
-  margin-top: 2px;
-}
-
 .letter-example-meaning {
   font-size: 0.85rem;
   color: var(--secondary);
-  font-weight: 600;
-  margin-top: 1px;
+  font-weight: 500;
 }
 
 /* ===== NIKUD SECTION ===== */
@@ -349,64 +309,6 @@ body {
   color: var(--green-dark);
   font-weight: 700;
   margin-top: 4px;
-}
-
-/* ===== NIKUD LETTER PICKER ===== */
-.nikud-letter-picker {
-  grid-column: 1 / -1;
-  background: white;
-  border-radius: var(--radius);
-  padding: 16px 20px;
-  box-shadow: var(--shadow);
-  margin-bottom: 4px;
-  text-align: center;
-}
-
-.nikud-picker-label {
-  font-size: 0.95rem;
-  color: var(--text-light);
-  margin-bottom: 12px;
-  font-weight: 500;
-}
-
-.nikud-picker-btns {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 6px;
-}
-
-.nikud-pick-btn {
-  width: 42px;
-  height: 42px;
-  border: 2px solid var(--primary-light);
-  background: white;
-  border-radius: var(--radius-sm);
-  font-size: 1.3rem;
-  font-weight: 700;
-  cursor: pointer;
-  font-family: inherit;
-  transition: var(--transition);
-  color: var(--primary);
-}
-
-.nikud-pick-btn:hover {
-  background: var(--primary-light);
-  color: white;
-  transform: translateY(-2px);
-}
-
-.nikud-pick-btn.active {
-  background: var(--primary);
-  color: white;
-  border-color: var(--primary);
-}
-
-.nikud-syllable {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--orange);
-  margin-top: 6px;
 }
 
 /* ===== WORDS SECTION ===== */
@@ -749,10 +651,8 @@ body {
 
 .memory-card-back .mem-sub {
   font-size: 0.8rem;
+  color: var(--text-light);
 }
-
-.mem-sub-ti { color: var(--secondary); font-weight: 600; }
-.mem-sub-tr { color: var(--orange);    font-weight: 600; }
 
 /* ===== STORY PICKER ===== */
 #story-picker {
@@ -880,17 +780,6 @@ body {
   letter-spacing: 4px;
 }
 
-.story-page-image {
-  max-width: 100%;
-  max-height: 320px;
-  width: auto;
-  height: auto;
-  border-radius: 12px;
-  display: block;
-  margin: 0 auto 20px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-}
-
 .story-nav {
   display: flex;
   justify-content: center;
@@ -942,21 +831,6 @@ body {
   font-size: 1.6rem;
   font-weight: 700;
   color: var(--primary);
-}
-
-.reading-word .rw-tigrinya {
-  font-size: 0.85rem;
-  color: var(--secondary);
-  font-weight: 600;
-  margin-top: 3px;
-}
-
-.reading-word .rw-translit {
-  font-size: 0.8rem;
-  color: var(--orange);
-  font-weight: 600;
-  margin-top: 1px;
-  direction: ltr;
 }
 
 .reading-word .rw-tooltip {
@@ -1059,26 +933,6 @@ body {
 }
 
 /* ===== QUIZ SECTION ===== */
-.quiz-start {
-  background: white;
-  border-radius: var(--radius);
-  padding: 40px 30px;
-  text-align: center;
-  box-shadow: var(--shadow);
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-.quiz-start-emoji {
-  font-size: 3rem;
-  margin-bottom: 12px;
-}
-
-.quiz-start h3 {
-  font-size: 1.3rem;
-  margin-bottom: 8px;
-}
-
 .quiz-card {
   background: white;
   border-radius: var(--radius);
@@ -1315,9 +1169,8 @@ body {
 @media (max-width: 768px) {
   .header h1 { font-size: 1.5rem; }
   .header .subtitle { font-size: 0.85rem; }
-  .nav { gap: 6px; padding: 8px 12px; top: 0; }
+  .nav { gap: 6px; padding: 8px 12px; top: 64px; }
   .nav-btn { padding: 8px 14px; font-size: 0.85rem; }
-  .nav-audio-btn { padding: 8px 10px; font-size: 0.95rem; }
   .section { padding: 14px; }
   .letters-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
   .letter-hebrew { font-size: 2.5rem; }
@@ -1338,70 +1191,6 @@ body {
   .quiz-option { padding: 12px; font-size: 1.5rem; }
 }
 
-/* ===== LANGUAGE COLOR CLASSES ===== */
-.lhe { color: var(--primary); font-weight: 700; }
-.ltr { color: var(--orange); font-weight: 600; direction: ltr; font-style: italic; }
-.lti { color: var(--secondary); font-weight: 600; }
-
-.section-title .lhe, .section-title .ltr, .section-title .lti,
-.section-subtitle .lhe, .section-subtitle .ltr, .section-subtitle .lti { display: block; }
-.section-title .ltr { font-size: 0.52em; font-weight: 500; margin-top: 4px; }
-.section-title .lti { font-size: 0.62em; margin-top: 2px; }
-.section-subtitle .ltr { font-size: 0.9em; margin-top: 5px; }
-.section-subtitle .lti { margin-top: 3px; }
-
-.parent-banner .lhe, .parent-banner .ltr, .parent-banner .lti { display: block; }
-.parent-banner .ltr { font-size: 0.85em; margin-top: 2px; }
-
-.audio-top-btn {
-  position: absolute;
-  top: 50%;
-  left: 14px;
-  transform: translateY(-50%);
-  background: rgba(255,255,255,0.3);
-  border: 2px solid rgba(255,255,255,0.6);
-  border-radius: 50%;
-  width: 38px;
-  height: 38px;
-  font-size: 1.1rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: var(--transition);
-  z-index: 1;
-}
-
-.audio-top-btn:hover {
-  background: rgba(255,255,255,0.5);
-  transform: translateY(-50%) scale(1.1);
-}
-
-/* ===== COLOR LEGEND ===== */
-.color-legend {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap;
-  background: white;
-  border-radius: var(--radius);
-  padding: 10px 20px;
-  margin-bottom: 20px;
-  box-shadow: var(--shadow);
-  font-size: 0.95rem;
-}
-
-.legend-item {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.legend-label {
-  color: var(--text-light);
-  font-size: 0.85rem;
-}
-
 /* ===== PRINT STYLES ===== */
 @media print {
   .nav, .header { display: none; }
@@ -1413,7 +1202,6 @@ body {
   background: linear-gradient(135deg, var(--accent), var(--orange));
   padding: 12px 20px;
   text-align: center;
-  position: relative;
   font-size: 0.9rem;
   font-weight: 600;
   color: var(--text);

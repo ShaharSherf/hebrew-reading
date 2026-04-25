@@ -1,0 +1,35 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.tinytap.com)",
+      "WebFetch(domain:wordwall.net)",
+      "Bash(start:*)",
+      "Bash(python:*)",
+      "WebFetch(domain:user-komwvbi.cld.bz)",
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(gh repo:*)",
+      "Bash(git remote:*)",
+      "Bash(git branch:*)",
+      "Bash(git push:*)",
+      "WebFetch(domain:adamtsair.co.il)",
+      "mcp__chrome-devtools__new_page",
+      "mcp__chrome-devtools__evaluate_script",
+      "mcp__chrome-devtools__navigate_page",
+      "mcp__chrome-devtools__list_console_messages",
+      "mcp__chrome-devtools__take_screenshot",
+      "mcp__chrome-devtools__wait_for",
+      "Bash(node -c data.js)",
+      "Bash(node -c app.js)",
+      "Bash(curl -s http://localhost:8080/)",
+      "WebFetch(domain:www.sipurkatan.com)",
+      "mcp__chrome-devtools__list_pages",
+      "Bash(python3:*)",
+      "Bash(node -c js/data.js)",
+      "Bash(node -e \"console.log\\(''ok''\\)\")",
+      "Bash(node -c \"C:/Users/shahar.s/Documents/left/hebrew/js/data.js\")",
+      "Bash(.js$ \")"
+    ]
+  }
+}
