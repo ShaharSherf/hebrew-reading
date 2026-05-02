@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- Back uprights -->
+  <rect x="16" y="32" width="7" height="55" rx="3" fill="#6D4C2A"/>
+  <rect x="77" y="32" width="7" height="55" rx="3" fill="#6D4C2A"/>
+  <!-- Backrest planks -->
+  <rect x="12" y="30" width="76" height="9" rx="4" fill="#A57C4A"/>
+  <rect x="12" y="40" width="76" height="7" rx="3" fill="#8B6030"/>
+  <!-- Seat planks -->
+  <rect x="10" y="58" width="80" height="9" rx="4" fill="#A57C4A"/>
+  <rect x="10" y="67" width="80" height="6" rx="3" fill="#8B6030"/>
+  <!-- Front legs -->
+  <rect x="17" y="73" width="7" height="20" rx="3" fill="#6D4C2A"/>
+  <rect x="76" y="73" width="7" height="20" rx="3" fill="#6D4C2A"/>
+  <!-- Cross-brace -->
+  <rect x="22" y="80" width="56" height="4" rx="2" fill="#7A5530"/>
+</svg>

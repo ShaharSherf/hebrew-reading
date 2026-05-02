@@ -881,10 +881,10 @@ body {
 }
 
 .story-page-image {
-  max-width: 100%;
-  max-height: 320px;
-  width: auto;
-  height: auto;
+  width: 200px;
+  height: 200px;
+  max-width: 80%;
+  object-fit: contain;
   border-radius: 12px;
   display: block;
   margin: 0 auto 20px;
@@ -1657,6 +1657,7 @@ body {
 .pot-wrong   .pot-badge { background: var(--secondary); color: white; }
 
 .pot-item-emoji    { font-size: 1.8rem; line-height: 1; }
+.pot-item-img      { width: 2.2rem; height: 2.2rem; object-fit: contain; display: block; }
 .pot-item-hebrew   { font-size: 0.8rem; font-weight: 700; color: var(--primary); margin-top: 2px; }
 .pot-item-tigrinya { font-size: 0.72rem; color: var(--secondary); font-weight: 600; }
 .pot-item-translit { font-size: 0.68rem; color: var(--orange); font-weight: 600; font-style: italic; direction: ltr; }

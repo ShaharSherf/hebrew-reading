@@ -348,10 +348,13 @@ function renderPotPage(container, page, total) {
             let badge = '';
             if (clicked === 'correct') { cls += ' pot-correct'; badge = '<span class="pot-badge">✓</span>'; }
             else if (clicked === 'wrong') { cls += ' pot-wrong'; badge = '<span class="pot-badge">✗</span>'; }
+            const emojiHtml = item.emoji?.startsWith('img:')
+              ? `<img src="${item.emoji.slice(4)}" alt="" class="pot-item-img">`
+              : `<div class="pot-item-emoji">${item.emoji || ''}</div>`;
             return `
               <div class="${cls}" onclick="clickPotItem(${i})">
                 ${badge}
-                <div class="pot-item-emoji">${item.emoji}</div>
+                ${emojiHtml}
                 <div class="lhe pot-item-hebrew">${item.text}</div>
                 ${item.tigrinya ? `<div class="pot-item-tigrinya">${item.tigrinya}</div>` : ''}
                 ${item.translit ? `<div class="pot-item-translit">${item.translit}</div>` : ''}
@@ -359,8 +362,8 @@ function renderPotPage(container, page, total) {
           }).join('')}
         </div>
         ${allFound
-          ? `<div class="question-feedback feedback-correct lhe">כל הכבוד! מצאת את כל המצרכים!</div>`
-          : `<div class="pot-hint lhe">לחץ על מה שסבתא שמה בסיר 🍲</div>`}
+          ? `<div class="question-feedback feedback-correct lhe">${page.successText || 'כָּל הַכָּבוֹד! מָצְאתָ אֶת כָּל הַפְּרִיטִים!'}</div>`
+          : `<div class="pot-hint lhe">${page.hint || 'לחץ על מה שסבתא שמה בסיר 🍲'}</div>`}
       </div>
       <div class="story-nav">
         <button class="reading-nav-btn" onclick="storyPrev()" ${currentPage === 0 ? 'disabled style="opacity:0.4"' : ''}>
