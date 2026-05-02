@@ -37,6 +37,18 @@ function speak(text) {
   }
 }
 
+let _hoverTimer = null;
+
+function speakOnHover(el) {
+  clearTimeout(_hoverTimer);
+  _hoverTimer = setTimeout(() => speak(el.dataset.speak), 300);
+}
+
+function cancelHoverSpeak() {
+  clearTimeout(_hoverTimer);
+  _hoverTimer = null;
+}
+
 function toggleAudio() {
   audioEnabled = !audioEnabled;
   localStorage.setItem('audioEnabled', audioEnabled);

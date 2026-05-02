@@ -4,7 +4,7 @@ function renderWelcome() {
     <div class="welcome">
       <div class="welcome-hero">📚✨🎓</div>
       <h2>
-        <span class="lhe" style="display:block;">!בּוֹאוּ נִלְמַד לִקְרֹא בְּעִבְרִית</span>
+        <span class="lhe" style="display:block;">בּוֹאוּ נִלְמַד לִקְרֹא בְּעִבְרִית!</span>
         <span class="lti" style="display:block;font-size:0.65em;margin-top:3px;color:var(--orange);">ቦዑ ኒልማድ ሊቕሮ ቤ-ኢቭሪት!</span>
         <span class="lti" style="display:block;font-size:0.7em;margin-top:4px;">!ንዑ ብዕብራይስጢ ከነንብብ ንመሃር</span>
       </h2>
@@ -104,9 +104,9 @@ function renderWelcome() {
             <span class="lti" style="display:block;font-size:0.8em;margin-top:2px;">ፈተና</span>
           </h3>
           <p>
-            <span class="lhe" style="display:block;">!בואו נבדוק מה למדנו</span>
+            <span class="lhe" style="display:block;">בואו נבדוק מה למדנו!</span>
             <span class="lti" style="display:block;font-size:0.85em;margin-top:3px;color:var(--orange);">ቦዑ ኒቭዶቅ ማ ላምዳኑ!</span>
-            <span class="lti" style="display:block;margin-top:2px;">!ዝተመሃርናዮ ንፈትሽ</span>
+            <span class="lti" style="display:block;margin-top:2px;">ዝተመሃርናዮ ንፈትሽ!</span>
           </p>
         </div>
       </div>

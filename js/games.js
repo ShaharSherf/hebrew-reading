@@ -68,12 +68,12 @@ function initMatchGame(count = 6) {
     <div class="celebration" id="match-celebration">
       <div class="celebration-emoji">🎉🌟🎊</div>
       <h2>
-        <span class="lhe" style="display:block;">!כל הכבוד</span>
-        <span class="lti" style="display:block;font-size:0.7em;margin-top:4px;">!ብራቮ</span>
+        <span class="lhe" style="display:block;">כל הכבוד!</span>
+        <span class="lti" style="display:block;font-size:0.7em;margin-top:4px;">ብራቮ!</span>
       </h2>
       <p>
-        <span class="lhe" style="display:block;">!סיימתם את המשחק</span>
-        <span class="lti" style="display:block;margin-top:2px;">!ጸወታ ወዲእኩም</span>
+        <span class="lhe" style="display:block;">סיימתם את המשחק!</span>
+        <span class="lti" style="display:block;margin-top:2px;">ጸወታ ወዲእኩም!</span>
       </p>
       <button class="game-btn game-btn-primary" onclick="initMatchGame(${count})" style="margin-top: 16px;">
         <span class="lhe">שחקו שוב</span> / <span class="lti">ደግሞ ጸውቱ</span>
@@ -206,12 +206,12 @@ function initMemoryGame(pairs = 6) {
     <div class="celebration" id="memory-celebration">
       <div class="celebration-emoji">🧠⭐🏆</div>
       <h2>
-        <span class="lhe" style="display:block;">!מדהים</span>
-        <span class="lti" style="display:block;font-size:0.7em;margin-top:4px;">!ዓብዪ</span>
+        <span class="lhe" style="display:block;">מדהים!</span>
+        <span class="lti" style="display:block;font-size:0.7em;margin-top:4px;">ዓብዪ!</span>
       </h2>
       <p>
-        <span class="lhe" style="display:block;">!מצאתם את כל הזוגות</span>
-        <span class="lti" style="display:block;margin-top:2px;">!ኩሉ ጽምድታት ረኺብኩም</span>
+        <span class="lhe" style="display:block;">מצאתם את כל הזוגות!</span>
+        <span class="lti" style="display:block;margin-top:2px;">ኩሉ ጽምድታት ረኺብኩም!</span>
       </p>
       <button class="game-btn game-btn-primary" onclick="initMemoryGame(${pairs})" style="margin-top: 16px;">
         <span class="lhe">מילים חדשות! 🔄</span> / <span class="lti">ሓደስቲ ቃላት!</span>
@@ -329,8 +329,8 @@ function renderQuizQuestion() {
       <div class="celebration show">
         <div class="celebration-emoji">${pct >= 70 ? '🏆🌟🎉' : pct >= 31 ? '💪📚✨' : '📚🌱💡'}</div>
         <h2>
-          <span class="lhe" style="display:block;">${pct >= 70 ? '!מצוין' : pct >= 31 ? '!כל הכבוד' : '!ממשיכים להתאמן'}</span>
-          <span class="lti" style="display:block;font-size:0.7em;margin-top:4px;">${pct >= 70 ? '!ብሉጽ' : pct >= 31 ? '!ብራቮ' : '!ደጋጊምካ ፈትን'}</span>
+          <span class="lhe" style="display:block;">${pct >= 70 ? 'מצוין!' : pct >= 31 ? 'כל הכבוד!' : 'ממשיכים להתאמן!'}</span>
+          <span class="lti" style="display:block;font-size:0.7em;margin-top:4px;">${pct >= 70 ? 'ብሉጽ!' : pct >= 31 ? 'ብራቮ!' : 'ደጋጊምካ ፈትን!'}</span>
         </h2>
         <p>
           <span class="lhe" style="display:block;">עניתם נכון על ${quizState.score} מתוך ${quizState.total} שאלות</span>
