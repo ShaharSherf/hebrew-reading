@@ -299,8 +299,8 @@ const STORIES = [
     cover: '👵🍳',
     pages: [
       {
-        hebrew: 'הַיּוֹם יוֹם שִׁשִּׁי.',
-        words: ['הַיּוֹם', 'יוֹם', 'שִׁשִּׁי.'],
+        hebrew: 'הַיּוֹם יוֹם שִׁישִּׁי.',
+        words: ['הַיּוֹם', 'יוֹם', 'שִׁישִּׁי.'],
         tigrinya: ['ሎሚ', 'መዓልቲ', 'ዓርቢ እያ.'],
         translit: ['ሃዮም', 'ዮም', 'ሺሺ.'],
         fullTigrinya: 'ሎሚ ዓርቢ እያ.',
@@ -315,11 +315,11 @@ const STORIES = [
         emoji: '👵🏠'
       },
       {
-        hebrew: 'סָבְתָא הוֹלֶכֶת לַמִּטְבָּח.',
-        words: ['סָבְתָא', 'הוֹלֶכֶת', 'לַמִּטְבָּח.'],
-        tigrinya: ['እማ ሓጎ', 'ትኸይድ', 'ናብ ክሽነ.'],
-        translit: ['ሳቭታ', 'ሆለከት', 'ላሚጥባሕ.'],
-        fullTigrinya: 'እማ ሓጎ ናብ ክሽነ ትኸይድ.',
+        hebrew: 'סָבְתָא הָלְכָה לַמִּטְבָּח.',
+        words: ['סָבְתָא', 'הָלְכָה', 'לַמִּטְבָּח.'],
+        tigrinya: ['እማ ሓጎ', 'ኸደት', 'ናብ ክሽነ.'],
+        translit: ['ሳቭታ', 'ሃልካ', 'ላሚጥባሕ.'],
+        fullTigrinya: 'እማ ሓጎ ናብ ክሽነ ኸደት.',
         emoji: '👵🚶‍♀️'
       },
       {
@@ -355,6 +355,22 @@ const STORIES = [
         emoji: '🥩'
       },
       {
+        hebrew: 'סָבְתָא שָׂמָה בָּצָל.',
+        words: ['סָבְתָא', 'שָׂמָה', 'בָּצָל.'],
+        tigrinya: ['እማ ሓጎ', 'ኣእትያ', 'ሽጉርቲ.'],
+        translit: ['ሳቭታ', 'ሳማ', 'ባጻል.'],
+        fullTigrinya: 'እማ ሓጎ ሽጉርቲ ኣእትያ.',
+        emoji: '🧅'
+      },
+      {
+        hebrew: 'סָבְתָא שָׂמָה שׁוּם.',
+        words: ['סָבְתָא', 'שָׂמָה', 'שׁוּם.'],
+        tigrinya: ['እማ ሓጎ', 'ኣእትያ', 'ቱም.'],
+        translit: ['ሳቭታ', 'ሳማ', 'ሹም.'],
+        fullTigrinya: 'እማ ሓጎ ቱም ኣእትያ.',
+        emoji: '🧄'
+      },
+      {
         hebrew: 'אֵיזֶה רֵיחַ טוֹב!',
         words: ['אֵיזֶה', 'רֵיחַ', 'טוֹב!'],
         tigrinya: ['ክንደይ', 'ጽቡቕ', 'ጨና!'],
@@ -363,8 +379,8 @@ const STORIES = [
         emoji: '😋👃'
       },
       {
-        hebrew: 'כֻּלָּם יוֹשְׁבִים לֶאֱכוֹל.',
-        words: ['כֻּלָּם', 'יוֹשְׁבִים', 'לֶאֱכוֹל.'],
+        hebrew: 'כּוּלָּם יוֹשְׁבִים לֶאֱכוֹל.',
+        words: ['כּוּלָּם', 'יוֹשְׁבִים', 'לֶאֱכוֹל.'],
         tigrinya: ['ኩሎም', 'ይቕመጡ', 'ክበልዑ.'],
         translit: ['ኩላም', 'ዮሽቪም', 'ለኤኮል.'],
         fullTigrinya: 'ኩሎም ክበልዑ ይቕመጡ.',
@@ -377,6 +393,38 @@ const STORIES = [
         translit: ['ቶዳ', 'ሳቭታ!'],
         fullTigrinya: 'የቐንየልና እማ ሓጎ!',
         emoji: '❤️👵'
+      },
+      {
+        type: 'mcq',
+        question: 'אֵיזֶה יוֹם הַיּוֹם?',
+        questionTigrinya: 'ሎሚ ኣየናይ መዓልቲ እዩ?',
+        questionTranslit: 'ኤዘ ዮም ሃዮም?',
+        options: ['יוֹם שֵׁנִי', 'יוֹם חֲמִישִׁי', 'יוֹם שִׁישִּׁי', 'יוֹם שַׁבָּת'],
+        optionsTigrinya: ['ሰኑይ', 'ሓሙስ', 'ዓርቢ', 'ሰንበት'],
+        optionsTranslit: ['ዮም ሼኒ', 'ዮም ሓሚሺ', 'ዮም ሺሺ', 'ዮም ሻባት'],
+        correct: 2,
+        emoji: '📅'
+      },
+      {
+        type: 'pot',
+        prompt: 'מָה שָׂמָה סָבְתָא בַּסִּיר?',
+        promptTigrinya: 'ኣደ ሓጎ ናይ እንታይ ኣብ ድስቲ ኣእተወት?',
+        promptTranslit: 'ማ ሳማ ሳቭታ ባሲር?',
+        items: [
+          { text: 'תַּפּוּחַ',           emoji: '🍎', tigrinya: 'ቱፋሕ',     translit: 'ታፑሓ',          correct: false },
+          { text: 'גֶּזֶר',             emoji: '🥕', tigrinya: 'ካሮት',     translit: 'ገዘር',           correct: true  },
+          { text: 'חָלָב',              emoji: '🥛', tigrinya: 'ጸባ',       translit: 'ሓላቭ',          correct: false },
+          { text: 'בָּצָל',             emoji: '🧅', tigrinya: 'ሽጉርቲ',   translit: 'ባጻል',           correct: true  },
+          { text: 'בֵּיצָה',            emoji: '🥚', tigrinya: 'እንቋቍቑ',   translit: 'ቤጻ',           correct: false },
+          { text: 'בָּשָׂר',            emoji: '🥩', tigrinya: 'ስጋ',       translit: 'ባሳር',          correct: true  },
+          { text: 'לֶחֶם',              emoji: '🍞', tigrinya: 'ባኒ',       translit: 'ለሐም',          correct: false },
+          { text: 'תַּפּוּחֵי אֲדָמָה', emoji: '🥔', tigrinya: 'ድንሽ',     translit: 'ታፑሔ ኣዳማ',     correct: true  },
+          { text: 'דָּג',               emoji: '🐟', tigrinya: 'ዓሳ',       translit: 'ዳግ',           correct: false },
+          { text: 'שׁוּם',               emoji: '🧄', tigrinya: 'ቱም',       translit: 'ሹም',           correct: true  },
+          { text: 'בָּנָנָה',           emoji: '🍌', tigrinya: 'ባናና',      translit: 'ባናና',          correct: false },
+          { text: 'עוֹף',               emoji: '🍗', tigrinya: 'ዶርሆ',     translit: 'ዖፍ',           correct: false },
+        ],
+        emoji: '🍲'
       },
     ]
   },

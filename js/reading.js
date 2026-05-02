@@ -60,6 +60,7 @@ function renderStoryPage() {
   if (page.type === 'mcq') { renderMCQPage(container, page, total); return; }
   if (page.type === 'truefalse') { renderTrueFalsePage(container, page, total); return; }
   if (page.type === 'write') { renderWritePage(container, page, total); return; }
+  if (page.type === 'pot') { renderPotPage(container, page, total); return; }
 
   container.innerHTML = `
     <div class="story-book">
@@ -316,4 +317,68 @@ function renderWritePage(container, page, total) {
       </div>
     </div>
   `;
+}
+
+function renderPotPage(container, page, total) {
+  const story = STORIES[currentStory];
+  if (!pageAnswers[currentPage]) pageAnswers[currentPage] = { clicked: {} };
+  const state = pageAnswers[currentPage];
+
+  const correctIndices = page.items.reduce((acc, item, i) => item.correct ? [...acc, i] : acc, []);
+  const allFound = correctIndices.every(i => state.clicked[i] === 'correct');
+  const safePrompt = page.prompt.replace(/'/g, "\\'");
+
+  container.innerHTML = `
+    <div class="story-book">
+      <div class="story-header">
+        <span class="story-header-title">${story.cover} ${story.title} - ${story.titleTigrinya}</span>
+      </div>
+      <div class="story-page story-question-page">
+        <div class="story-emoji">${page.emoji || '🍲'}</div>
+        <div class="question-heading" onclick="speak('${safePrompt}')">
+          <div class="lhe q-hebrew">${page.prompt}</div>
+          ${page.promptTigrinya ? `<div class="lti q-tigrinya">${page.promptTigrinya}</div>` : ''}
+          ${page.promptTranslit ? `<div class="q-translit">${page.promptTranslit}</div>` : ''}
+        </div>
+        <div class="pot-grid">
+          ${page.items.map((item, i) => {
+            const clicked = state.clicked[i];
+            let cls = 'pot-item';
+            let badge = '';
+            if (clicked === 'correct') { cls += ' pot-correct'; badge = '<span class="pot-badge">✓</span>'; }
+            else if (clicked === 'wrong') { cls += ' pot-wrong'; badge = '<span class="pot-badge">✗</span>'; }
+            return `
+              <div class="${cls}" onclick="clickPotItem(${i})">
+                ${badge}
+                <div class="pot-item-emoji">${item.emoji}</div>
+                <div class="lhe pot-item-hebrew">${item.text}</div>
+                ${item.tigrinya ? `<div class="pot-item-tigrinya">${item.tigrinya}</div>` : ''}
+                ${item.translit ? `<div class="pot-item-translit">${item.translit}</div>` : ''}
+              </div>`;
+          }).join('')}
+        </div>
+        ${allFound
+          ? `<div class="question-feedback feedback-correct lhe">כל הכבוד! מצאת את כל המצרכים!</div>`
+          : `<div class="pot-hint lhe">לחץ על מה שסבתא שמה בסיר 🍲</div>`}
+      </div>
+      <div class="story-nav">
+        <button class="reading-nav-btn" onclick="storyPrev()" ${currentPage === 0 ? 'disabled style="opacity:0.4"' : ''}>
+          <span class="lhe">→ הקודם</span>
+        </button>
+        <span class="story-page-num"><span class="lhe">עמוד</span> ${currentPage + 1} / ${total}</span>
+        ${allFound ? (currentPage < total - 1 ?
+          `<button class="reading-nav-btn" onclick="storyNext()"><span class="lhe">הבא ←</span></button>` :
+          `<button class="reading-nav-btn" style="background:var(--green);color:white;border-color:var(--green);" onclick="storyFinish()"><span class="lhe">סיימתי! ←</span></button>`
+        ) : '<span></span>'}
+      </div>
+    </div>
+  `;
+}
+
+function clickPotItem(i) {
+  const page = STORIES[currentStory].pages[currentPage];
+  if (!pageAnswers[currentPage]) pageAnswers[currentPage] = { clicked: {} };
+  if (pageAnswers[currentPage].clicked[i]) return;
+  pageAnswers[currentPage].clicked[i] = page.items[i].correct ? 'correct' : 'wrong';
+  renderStoryPage();
 }
