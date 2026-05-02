@@ -61,6 +61,7 @@ function renderStoryPage() {
   if (page.type === 'truefalse') { renderTrueFalsePage(container, page, total); return; }
   if (page.type === 'write') { renderWritePage(container, page, total); return; }
   if (page.type === 'pot') { renderPotPage(container, page, total); return; }
+  if (page.type === 'order') { renderOrderPage(container, page, total); return; }
 
   container.innerHTML = `
     <div class="story-book">
@@ -380,5 +381,198 @@ function clickPotItem(i) {
   if (!pageAnswers[currentPage]) pageAnswers[currentPage] = { clicked: {} };
   if (pageAnswers[currentPage].clicked[i]) return;
   pageAnswers[currentPage].clicked[i] = page.items[i].correct ? 'correct' : 'wrong';
+  renderStoryPage();
+}
+
+let _orderDrag = null;
+
+function renderOrderPage(container, page, total) {
+  const story = STORIES[currentStory];
+  if (!pageAnswers[currentPage]) {
+    const shuffled = page.items.map((item, i) => ({ ...item, correctIndex: i }));
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    pageAnswers[currentPage] = {
+      shuffled,
+      slots: new Array(page.items.length).fill(null),
+      checked: false,
+      allCorrect: false,
+      selected: null,
+    };
+  }
+  const state = pageAnswers[currentPage];
+  const allFilled = state.slots.every(s => s !== null);
+  const placedSet = new Set(state.slots.filter(s => s !== null));
+
+  const prevScroll = container.querySelector('.order-timeline-wrapper')?.scrollLeft || 0;
+
+  // Timeline slots
+  const timelineHtml = state.slots.map((sIdx, i) => {
+    let slotExtra = sIdx !== null ? ' order-slot-filled' : '';
+    if (state.checked && sIdx !== null) {
+      slotExtra += state.shuffled[sIdx].correctIndex === i ? ' order-slot-ok' : ' order-slot-bad';
+    }
+    const item = sIdx !== null ? state.shuffled[sIdx] : null;
+    const itemHtml = item
+      ? `<div class="order-slot-card" draggable="true"
+            data-speak="${item.text}"
+            onmouseenter="speakOnHover(this)" onmouseleave="cancelHoverSpeak()"
+            ondragstart="orderDragStart(event,${sIdx},${i})"
+            onclick="orderClickSlot(${i})">
+          <span class="order-slot-emoji">${item.emoji}</span>
+          <span class="order-slot-hebrew lhe">${item.text}</span>
+          <span class="order-slot-tigrinya ti">${item.tigrinya}</span>
+          <span class="order-slot-translit translit">${item.translit}</span>
+        </div>`
+      : `<span class="order-slot-num">${i + 1}</span>`;
+    return `${i > 0 ? '<span class="order-arrow">→</span>' : ''}
+      <div class="order-slot${slotExtra}"
+          ondragover="orderDragOver(event)" ondrop="orderDropSlot(event,${i})"
+          onclick="orderClickSlot(${i})">${itemHtml}</div>`;
+  }).join('');
+
+  // Pool items
+  const poolHtml = state.shuffled.map((item, sIdx) => {
+    if (placedSet.has(sIdx)) return '';
+    const sel = state.selected === sIdx ? ' order-pool-selected' : '';
+    return `<div class="order-pool-item${sel}" draggable="true"
+        data-speak="${item.text}"
+        onmouseenter="speakOnHover(this)" onmouseleave="cancelHoverSpeak()"
+        ondragstart="orderDragStart(event,${sIdx},null)"
+        onclick="orderClickPool(${sIdx})">
+      <span class="order-slot-emoji">${item.emoji}</span>
+      <span class="order-slot-hebrew lhe">${item.text}</span>
+      <span class="order-slot-tigrinya ti">${item.tigrinya}</span>
+      <span class="order-slot-translit translit">${item.translit}</span>
+    </div>`;
+  }).join('');
+
+  let feedbackHtml = '';
+  if (state.allCorrect) {
+    feedbackHtml = `<div class="question-feedback feedback-correct lhe">כָּל הַכָּבוֹד! סֵדֶר נָכוֹן! 🎉</div>`;
+  } else if (state.checked) {
+    const nCorrect = state.slots.filter((s, i) => s !== null && state.shuffled[s].correctIndex === i).length;
+    feedbackHtml = `<div class="question-feedback feedback-wrong lhe">נסו שוב! ${nCorrect} / ${page.items.length} נכון</div>
+      <button class="reading-nav-btn" onclick="orderReset()" style="margin-top:8px;background:#e53935;border-color:#e53935;color:white;"><span class="lhe" style="color:white">איפוס</span></button>`;
+  }
+
+  container.innerHTML = `
+    <div class="story-book">
+      <div class="story-header">
+        <span class="story-header-title">${story.cover} ${story.title} - ${story.titleTigrinya}</span>
+      </div>
+      <div class="story-page story-question-page">
+        <div class="story-emoji">${page.emoji || '📋'}</div>
+        <div class="question-heading">
+          <div class="lhe q-hebrew">${page.prompt}</div>
+          ${page.promptTigrinya ? `<div class="lti q-tigrinya">${page.promptTigrinya}</div>` : ''}
+          ${page.promptTranslit ? `<div class="q-translit">${page.promptTranslit}</div>` : ''}
+        </div>
+        <div class="order-timeline-wrapper">
+          <div class="order-timeline">${timelineHtml}</div>
+        </div>
+        <div class="order-pool"
+            ondragover="orderDragOver(event)" ondrop="orderDropPool(event)">
+          ${poolHtml || '<span class="order-pool-empty lhe">כל הפריטים מוקמו ✓</span>'}
+        </div>
+        ${allFilled && !state.checked && !state.allCorrect
+          ? `<button class="reading-nav-btn" onclick="orderCheck()" style="background:var(--primary);color:white;margin-top:10px;"><span class="lhe" style="color:white">בדיקה!</span></button>`
+          : ''}
+        ${feedbackHtml}
+      </div>
+      <div class="story-nav">
+        <button class="reading-nav-btn" onclick="storyPrev()" ${currentPage === 0 ? 'disabled style="opacity:0.4"' : ''}>
+          <span class="lhe">→ הקודם</span>
+        </button>
+        <span class="story-page-num"><span class="lhe">עמוד</span> ${currentPage + 1} / ${total}</span>
+        ${state.allCorrect ? (currentPage < total - 1
+          ? `<button class="reading-nav-btn" onclick="storyNext()"><span class="lhe">הבא ←</span></button>`
+          : `<button class="reading-nav-btn" style="background:var(--green);color:white;border-color:var(--green);" onclick="storyFinish()"><span class="lhe">סיימתי! ←</span></button>`
+        ) : '<span></span>'}
+      </div>
+    </div>
+  `;
+  const wrapper = container.querySelector('.order-timeline-wrapper');
+  if (wrapper) wrapper.scrollLeft = prevScroll;
+}
+
+function orderDragStart(e, shuffledIdx, fromSlot) {
+  _orderDrag = { shuffledIdx, fromSlot };
+  e.dataTransfer.effectAllowed = 'move';
+  e.dataTransfer.setData('text/plain', String(shuffledIdx));
+}
+
+function orderDragOver(e) {
+  e.preventDefault();
+  e.dataTransfer.dropEffect = 'move';
+}
+
+function orderDropSlot(e, slotIdx) {
+  e.preventDefault();
+  if (!_orderDrag) return;
+  const { shuffledIdx, fromSlot } = _orderDrag;
+  _orderDrag = null;
+  const state = pageAnswers[currentPage];
+  const existing = state.slots[slotIdx];
+  if (fromSlot !== null) {
+    state.slots[fromSlot] = existing; // swap: existing goes to source slot (or null)
+  }
+  state.slots[slotIdx] = shuffledIdx;
+  state.checked = false;
+  state.allCorrect = false;
+  renderStoryPage();
+}
+
+function orderDropPool(e) {
+  e.preventDefault();
+  if (!_orderDrag || _orderDrag.fromSlot === null) { _orderDrag = null; return; }
+  const state = pageAnswers[currentPage];
+  state.slots[_orderDrag.fromSlot] = null;
+  state.checked = false;
+  state.allCorrect = false;
+  _orderDrag = null;
+  renderStoryPage();
+}
+
+function orderClickPool(sIdx) {
+  const state = pageAnswers[currentPage];
+  state.selected = state.selected === sIdx ? null : sIdx;
+  renderStoryPage();
+}
+
+function orderClickSlot(slotIdx) {
+  const state = pageAnswers[currentPage];
+  if (state.selected !== null) {
+    const existing = state.slots[slotIdx];
+    state.slots[slotIdx] = state.selected;
+    // if existing item was in slot, it goes back to pool (not in slots = in pool)
+    // but we need to make sure we don't orphan an item if selected came from another slot
+    state.selected = null;
+    state.checked = false;
+    state.allCorrect = false;
+  } else if (state.slots[slotIdx] !== null) {
+    state.slots[slotIdx] = null;
+    state.checked = false;
+    state.allCorrect = false;
+  }
+  renderStoryPage();
+}
+
+function orderCheck() {
+  const state = pageAnswers[currentPage];
+  state.checked = true;
+  state.allCorrect = state.slots.every((s, i) => s !== null && state.shuffled[s].correctIndex === i);
+  if (state.allCorrect) speak('כל הכבוד');
+  renderStoryPage();
+}
+
+function orderReset() {
+  const state = pageAnswers[currentPage];
+  state.slots = new Array(state.shuffled.length).fill(null);
+  state.checked = false;
+  state.allCorrect = false;
+  state.selected = null;
   renderStoryPage();
 }
